@@ -19,4 +19,5 @@ Run `npm ci`, `npm audit --omit=dev`, `npm run build`, and `npm run deploy:dry-r
 
 The hero artwork is not open licensed. Preserve `IMAGE_RIGHTS.md`, the authoritative source/public originals, and rights-aware Astro image service.
 
-The exact commit identity and completed verification evidence will be recorded here when the initial public baseline is pushed.
+Treat the checked-out \`main\` commit as the exact source identity. Verify it with
+\`git rev-parse HEAD\` and confirm it matches \`origin/main\` before release work.
