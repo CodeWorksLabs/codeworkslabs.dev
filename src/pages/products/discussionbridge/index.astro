@@ -1,0 +1,71 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const capabilities = [
+  ["One durable discussion", "Keep a stable Discourse conversation while content moves between platforms, frameworks, and themes."],
+  ["Platform-native products", "Astro, Ghost, Hugo, Statamic, and WordPress integrations preserve each platform’s own publishing lifecycle."],
+  ["Three presentations", "Choose Simple, Full, or fullInteractive without confusing those distinct product promises."],
+  ["Governed identity", "Durable Bridge Records connect canonical pages and topics with bounded direction, ownership, and visibility."],
+  ["Safe operations", "Idempotent retry, fail-closed reconciliation, diagnostics, and recovery are designed into the workflow."],
+  ["Live proof", "Eight public publishing profiles demonstrate real content paths rather than a compatibility-logo claim."],
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "DiscussionBridge",
+  description: "A family of focused tools for publishing anywhere while keeping one durable Discourse discussion.",
+  category: "Publishing and community software",
+  url: "https://codeworkslabs.dev/products/discussionbridge/",
+  sameAs: "https://discussionbridge.dev/",
+  brand: { "@id": "https://codeworkslabs.dev/#organization" },
+  manufacturer: { "@id": "https://codeworkslabs.dev/#organization" },
+};
+---
+
+<Base title="DiscussionBridge — CodeWorksLabs" description="A family of focused tools for publishing anywhere while keeping one durable Discourse discussion." {structuredData}>
+  <section class="product-hero">
+    <div>
+      <p class="eyebrow"><span></span> Independent product ecosystem</p>
+      <h1>Publish anywhere.<br /><em>Keep the discussion.</em></h1>
+      <p class="lede">DiscussionBridge connects publishing platforms to one durable Discourse conversation without turning the forum into a deployment broker or forcing every site into the same presentation.</p>
+      <div class="product-actions">
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://discussionbridge.dev/download/">Install DiscussionBridge <span>↗</span></a>
+          <a class="button button-secondary" href="https://docs.discussionbridge.dev/">Read documentation</a>
+          <a class="button button-secondary" href="https://demo.discussionbridge.dev/">Explore live demos</a>
+        </div>
+        <nav class="product-utility-actions" aria-label="DiscussionBridge resources">
+          <a href="https://docs.discussionbridge.dev/versions-and-live-status/">Versions and live status</a>
+          <a href="https://github.com/DiscussionBridge">Repositories</a>
+          <a href="https://discussionbridge.dev/support/">Get support</a>
+        </nav>
+      </div>
+    </div>
+    <aside class="release-panel">
+      <p>Current family status</p><strong>Alpha.19</strong><span>Coordinated candidate · gated promotion</span>
+      <dl><div><dt>Live demos</dt><dd>Alpha.18</dd></div><div><dt>Maker</dt><dd>CodeWorksLabs</dd></div><div><dt>Identity</dt><dd>Independent ecosystem</dd></div><div><dt>Lifecycle</dt><dd>Alpha</dd></div></dl>
+    </aside>
+  </section>
+  <div class="independence-note">Made by CodeWorksLabs. DiscussionBridge keeps its own site, documentation, demos, community, repositories, and product identity.</div>
+  <section class="section feature-section">
+    <div class="section-heading"><p class="eyebrow"><span></span> What it preserves</p><h2>Content can move.<br />Community memory remains.</h2></div>
+    <div class="feature-grid">
+      {capabilities.map(([title, description], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}
+    </div>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Embryo to hospice</p><h2>Lifecycle thinking<br />made concrete.</h2></div>
+    <div>
+      <p>DiscussionBridge is the original worked example for the CodeWorksLabs product lifecycle. Its Alpha gates treat public documentation, support, exact releases, live demonstrations, diagnostics, maintenance, and recovery as product work—not finishing touches.</p>
+      <div class="text-links">
+        <a class="text-link" href="https://discussionbridge.dev/">Visit DiscussionBridge →</a>
+        <a class="text-link" href="https://docs.discussionbridge.dev/versions-and-live-status/">Versions and live status →</a>
+      </div>
+    </div>
+  </section>
+  <section class="limitations">
+    <strong>Alpha remains an evidence boundary.</strong>
+    <p>The public profiles and coordinated candidate are real, but source, package, installed runtime, deployment, human acceptance, review, and release remain separate gates. The DiscussionBridge status record names what is proven now.</p>
+  </section>
+</Base>

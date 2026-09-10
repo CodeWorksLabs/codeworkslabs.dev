@@ -1,0 +1,140 @@
+---
+import { Picture } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import heroArtwork from "../assets/codeworkslabs-systems.png";
+import { COPYRIGHT_NOTICE, RIGHTS_STATEMENT } from "../image-rights.mjs";
+
+const heroImage = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "@id": "https://codeworkslabs.dev/media/codeworkslabs-systems.png#image",
+  contentUrl: "https://codeworkslabs.dev/media/codeworkslabs-systems.png",
+  name: "CodeWorksLabs systems artwork",
+  description: "Original abstract artwork representing connected systems, products, and proof.",
+  creator: { "@id": "https://codeworkslabs.dev/#organization" },
+  copyrightHolder: {
+    "@type": "Organization",
+    name: "WebSynergetics",
+  },
+  copyrightNotice: COPYRIGHT_NOTICE,
+  creditText: "Original artwork by CodeWorksLabs",
+  usageInfo: RIGHTS_STATEMENT,
+};
+
+const products = [
+  {
+    name: "Brand Navigation",
+    type: "Discourse theme component",
+    status: "Release candidate",
+    description:
+      "A responsive brand header and one-level navigation system with structured administration and portable configuration.",
+    href: "/products/brand-navigation/",
+    accent: "coral",
+  },
+  {
+    name: "Astro Analytics",
+    type: "Astro integration",
+    status: "Experimental",
+    description:
+      "Explicit, provider-flexible analytics for Astro projects, with safe defaults and a Starlight-aware wrapper.",
+    href: "/products/#astro-analytics",
+    accent: "cyan",
+  },
+  {
+    name: "Astro Bluesky Comments",
+    type: "Astro integration",
+    status: "Experimental",
+    description:
+      "A reusable path for bringing Bluesky conversation into Astro publishing without surrendering the source page.",
+    href: "/products/#astro-bluesky-comments",
+    accent: "blue",
+  },
+];
+---
+
+<Base structuredData={heroImage}>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> Product lab · development studio</p>
+      <h1>Useful software,<br /><em>built with intent.</em></h1>
+      <p class="lede">
+        We turn sharp ideas into durable products, integrations, and open-source
+        tools—then document the thinking that makes them useful.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/products/">Explore the work <span>↗</span></a>
+        <a class="button button-secondary" href="https://docs.codeworkslabs.dev/">Read the docs</a>
+        <a class="button button-secondary" href="/support/">Get support</a>
+        <a class="button button-secondary" href="https://forum.codeworkslabs.dev/">Visit the forum <span>↗</span></a>
+      </div>
+      <dl class="signal-strip">
+        <div><dt>Focus</dt><dd>Web products &amp; platform tools</dd></div>
+        <div><dt>Method</dt><dd>Evidence before claims</dd></div>
+        <div><dt>Availability</dt><dd>Selected collaborations</dd></div>
+      </dl>
+    </div>
+    <div class="hero-art">
+      <Picture
+        src={heroArtwork}
+        formats={["avif", "webp"]}
+        fallbackFormat="png"
+        widths={[480, 768, 1024, 1280, 1536]}
+        sizes="(max-width: 760px) 100vw, 53vw"
+        quality={72}
+        alt="Abstract CodeWorksLabs artwork depicting connected systems and product architecture."
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="art-label"><span>01</span> Systems / products / proof</div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="Areas of work">
+    <div>Astro <span>◆</span> Discourse <span>◆</span> Integrations <span>◆</span> Open source <span>◆</span> Product systems</div>
+  </section>
+
+  <section class="section products-preview">
+    <div class="section-heading">
+      <p class="eyebrow"><span></span> Selected products</p>
+      <h2>Built to solve the part<br />that usually gets ignored.</h2>
+      <a class="text-link" href="/products/">View the full catalog <span>→</span></a>
+    </div>
+    <div class="product-grid">
+      {products.map((product, index) => (
+        <a class={`product-card ${product.accent}`} href={product.href}>
+          <div class="card-top"><span>0{index + 1}</span><span>{product.status}</span></div>
+          <div>
+            <p class="product-type">{product.type}</p>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+          </div>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section operating-model">
+    <div>
+      <p class="eyebrow"><span></span> The operating model</p>
+      <h2>One lab.<br />Clear ownership.</h2>
+    </div>
+    <div class="model-copy">
+      <p class="large-copy">CodeWorksLabs builds the tools. Individual products earn their own identities. WebSynergetics helps clients put the tools to work.</p>
+      <div class="model-points">
+        <div><span>01</span><h3>Products</h3><p>Focused tools with an explicit scope, real documentation, and honest release status.</p></div>
+        <div><span>02</span><h3>Platforms</h3><p>Deep work across Astro, Discourse, Ghost, Hugo, Statamic, and WordPress.</p></div>
+        <div><span>03</span><h3>Selected work</h3><p>Careful implementation and integration work when the fit is right.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-panel">
+    <p class="eyebrow"><span></span> What are you building?</p>
+    <h2>Interesting problem?<br /><em>Let’s make it tractable.</em></h2>
+    <div>
+      <p>We’re available for selected product, integration, and web platform work.</p>
+      <a class="button button-light" href="mailto:hello@codeworkslabs.dev">Start a conversation <span>↗</span></a>
+    </div>
+  </section>
+</Base>

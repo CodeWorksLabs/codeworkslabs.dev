@@ -1,0 +1,112 @@
+---
+import "../styles/global.css";
+import SocialIcon from "../components/SocialIcon.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  structuredData?: Record<string, unknown>;
+  securityHref?: string;
+}
+
+const {
+  title = "CodeWorksLabs — Useful software, built with intent",
+  description = "CodeWorksLabs is a product lab and development studio building open-source tools, integrations, and carefully engineered web products.",
+  structuredData,
+  securityHref = "/security/",
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const copyrightNotice = "© 2026 CodeWorksLabs, a WebSynergetics property.";
+const socialLinks = [
+  ["bluesky", "Bluesky", "https://bsky.app/profile/codeworkslabs.bsky.social"],
+  ["discord", "Discord", "https://discord.gg/MuddQ27tME"],
+  ["github", "GitHub", "https://github.com/CodeWorksLabs"],
+  ["mastodon", "Mastodon", "https://mastodon.social/@CodeWorksLabs"],
+  ["reddit", "Reddit", "https://www.reddit.com/r/CodeWorksLabs/"],
+  ["x", "X", "https://x.com/codeworkslabs"],
+  ["youtube", "YouTube", "https://www.youtube.com/@codeworkslabs"],
+] as const;
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://codeworkslabs.dev/#organization",
+  name: "CodeWorksLabs",
+  url: "https://codeworkslabs.dev/",
+  parentOrganization: {
+    "@type": "Organization",
+    name: "WebSynergetics",
+  },
+  sameAs: socialLinks.map(([, , href]) => href),
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="copyright" content={copyrightNotice} />
+    <meta name="theme-color" content="#080d1b" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CodeWorksLabs" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="CodeWorksLabs home">
+        <span class="wordmark-mark" aria-hidden="true">CWL</span>
+        <span>CodeWorksLabs</span>
+      </a>
+      <div class="header-navs">
+        <nav aria-label="Primary navigation">
+          <a href="/products/">Products</a>
+          <a href="/platforms/">Platforms</a>
+          <a href="https://demo.codeworkslabs.dev/">Demos</a>
+          <a href="https://docs.codeworkslabs.dev/">Docs</a>
+        </nav>
+        <nav class="utility-navigation" aria-label="Help and community">
+          <a href="/blog/">Blog</a>
+          <a href="/support/">Support</a>
+          <a href="https://forum.codeworkslabs.dev/">Forum <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p class="ownership"><strong>CodeWorksLabs</strong> builds the tools.<br /><span>{copyrightNotice}</span></p>
+      <div class="footer-links">
+        <a href="/products/">Products</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="https://demo.codeworkslabs.dev/">Demos</a>
+        <a href="https://docs.codeworkslabs.dev/">Documentation</a>
+        <a href="/blog/">Blog</a>
+        <a href="/support/">Support</a>
+        <a href="https://forum.codeworkslabs.dev/">Forum</a>
+        <a href="/hosting/">Hosting</a>
+        <a href="/hosting/partners/">Hosting partners</a>
+        <a href={securityHref}>Security</a>
+      </div>
+      <nav class="social-links" aria-label="CodeWorksLabs social links">
+        {socialLinks.map(([icon, label, href]) => (
+          <a href={href} aria-label={`CodeWorksLabs on ${label}`} title={label} rel="me">
+            <SocialIcon name={icon} />
+          </a>
+        ))}
+      </nav>
+    </footer>
+  </body>
+</html>

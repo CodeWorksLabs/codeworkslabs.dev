@@ -1,0 +1,94 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const products = [
+  {
+    name: "Brand Navigation",
+    type: "Discourse theme component",
+    status: "Release candidate",
+    summary: "A coherent brand header, one-level navigation model, and structured administration surface for Discourse.",
+    href: "/products/brand-navigation/",
+    public: true,
+  },
+  {
+    name: "Astro Analytics",
+    type: "Astro integration",
+    status: "Experimental private development",
+    summary: "Provider-flexible analytics with explicit enablement, bounded event queueing, and a Starlight wrapper.",
+  },
+  {
+    name: "Astro Bluesky Comments",
+    type: "Astro integration",
+    status: "Experimental private development",
+    summary: "A reusable integration for connecting Bluesky conversation to Astro publishing.",
+  },
+  {
+    name: "Purpose Built Portal",
+    type: "Reusable product framework",
+    status: "Planned",
+    summary: "Portable, CMS-agnostic models and implementation patterns for purpose-built portals.",
+  },
+  {
+    name: "LaunchLight",
+    type: "Publishing system",
+    status: "Planned",
+    summary: "A product lane exploring a reusable Astro and Starlight venture-publishing system.",
+  },
+  {
+    name: "AdvocacyForge",
+    type: "Advocacy platform",
+    status: "Concept",
+    summary: "A future product for manageable campaigns, organizing, and owned community infrastructure.",
+  },
+  {
+    name: "ChapterOps",
+    type: "Organization platform",
+    status: "Concept",
+    summary: "A future product for organizations operating national, regional, and local chapters.",
+  },
+];
+
+const lifecycle = [
+  ["01", "Embryo", "Name and place a testable idea."],
+  ["02", "Viability", "Prove one narrow path works."],
+  ["03", "Alpha", "Make it usable by early users."],
+  ["04", "Beta", "Widen usage and harden it."],
+  ["05", "Current", "Maintain the live product line."],
+  ["06", "Maturity", "Turn proof into durable leverage."],
+  ["07", "Hospice", "Retire responsibly and preserve knowledge."],
+];
+---
+
+<Base title="Products — CodeWorksLabs" description="Released, experimental, and planned products from CodeWorksLabs.">
+  <section class="page-intro">
+    <p class="eyebrow"><span></span> Product catalog</p>
+    <h1>Tools with a clear job<br /><em>and an honest status.</em></h1>
+    <p class="lede">Public releases, experiments, and longer-horizon product ideas live together here—but they are never presented as equally finished.</p>
+  </section>
+  <section class="catalog section">
+    {products.map((product, index) => (
+      <article class="catalog-row" id={product.name.toLowerCase().replaceAll(" ", "-")}>
+        <span class="catalog-number">{String(index + 1).padStart(2, "0")}</span>
+        <div><p class="product-type">{product.type}</p><h2>{product.name}</h2></div>
+        <p class="catalog-summary">{product.summary}</p>
+        <div class="catalog-status"><span>{product.status}</span>{product.href && <a href={product.href}>View product ↗</a>}</div>
+      </article>
+    ))}
+    <article class="catalog-row independent">
+      <span class="catalog-number">08</span>
+      <div><p class="product-type">Independent product ecosystem</p><h2>DiscussionBridge</h2></div>
+      <p class="catalog-summary">Made by CodeWorksLabs, with its own site, documentation, demos, community, and product identity.</p>
+      <div class="catalog-status"><span>Independent · Alpha</span><a href="/products/discussionbridge/">View product ↗</a></div>
+    </article>
+  </section>
+  <section class="section lifecycle" aria-labelledby="lifecycle-heading">
+    <div class="lifecycle-intro">
+      <div><p class="eyebrow"><span></span> Embryo to hospice</p><h2 id="lifecycle-heading">A whole-product<br /><em>lifecycle.</em></h2></div>
+      <p class="lifecycle-copy">A product earns its next stage through evidence. The model keeps discovery, release status, maintenance, recovery, documentation, and eventual retirement connected—so experiments are not presented as releases and useful knowledge survives the product.</p>
+    </div>
+    <ol class="lifecycle-stages">
+      {lifecycle.map(([number, name, description]) => <li><span>{number}</span><strong>{name}</strong><small>{description}</small></li>)}
+    </ol>
+    <p class="operating-loop"><strong>The operating loop:</strong> publish → sync → diagnose → maintain → recover → document</p>
+  </section>
+</Base>

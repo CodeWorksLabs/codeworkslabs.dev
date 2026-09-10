@@ -1,0 +1,39 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const featured = {
+  title: "Demonstrate the claim. Record the evidence.",
+  description: "Why documentation, demonstrations, release identity, and recovery belong inside the product—not around its edges.",
+  href: "/blog/demonstrate-the-claim/",
+  date: "September 9, 2026",
+  tag: "Product operations",
+  readingTime: "6 minute read",
+};
+---
+
+<Base title="Blog — CodeWorksLabs" description="Field notes from CodeWorksLabs about building, demonstrating, releasing, and maintaining useful software.">
+  <section class="page-intro blog-index-intro">
+    <p class="eyebrow"><span></span> CodeWorksLabs journal</p>
+    <h1>Notes from<br /><em>the workbench.</em></h1>
+    <p class="lede">Practical writing about product decisions, platform work, release evidence, and the parts of software that begin after the first successful build.</p>
+  </section>
+
+  <section class="section blog-feature" aria-labelledby="latest-note">
+    <div class="blog-feature-label">
+      <p class="eyebrow"><span></span> Latest note</p>
+      <p>01 / Field note</p>
+    </div>
+    <article>
+      <p class="article-kicker">{featured.tag}</p>
+      <h2 id="latest-note"><a href={featured.href}>{featured.title}</a></h2>
+      <p>{featured.description}</p>
+      <div class="article-meta"><time datetime="2026-09-09">{featured.date}</time><span>{featured.readingTime}</span></div>
+      <a class="button button-primary" href={featured.href}>Read the field note <span>→</span></a>
+    </article>
+  </section>
+
+  <section class="blog-subscribe">
+    <div><p class="eyebrow"><span></span> Follow the writing</p><h2>One useful note at a time.</h2></div>
+    <div><p>The feed is available for readers and tools that prefer an open subscription route. No inbox required.</p><a class="text-link" href="/blog/rss.xml">Subscribe with RSS →</a></div>
+  </section>
+</Base>

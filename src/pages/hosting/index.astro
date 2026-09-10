@@ -1,0 +1,55 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const hostingAreas = [
+  ["01", "Platform fit", "Choose a delivery model that matches the product: static edge delivery, application hosting, managed platform, or a deliberately mixed architecture."],
+  ["02", "Ownership and access", "Name who owns the account, domain, deployment authority, credentials, billing relationship, and day-to-day decisions before launch."],
+  ["03", "Operations", "Define monitoring, updates, support, incident response, and the evidence needed to call a service healthy."],
+  ["04", "Recovery and portability", "Keep backups, rollback, migration, and exit paths visible so a provider choice never becomes an undocumented trap."],
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "CodeWorksLabs hosting implementation",
+  description: "Hosting planning and implementation for selected CodeWorksLabs product and web-platform engagements.",
+  provider: { "@id": "https://codeworkslabs.dev/#organization" },
+  url: "https://codeworkslabs.dev/hosting/",
+};
+---
+
+<Base title="Hosting — CodeWorksLabs" description="Hosting planning and implementation with explicit ownership, operational, recovery, and portability boundaries." {structuredData}>
+  <section class="hosting-hero">
+    <div>
+      <p class="eyebrow"><span></span> Hosting</p>
+      <h1>A good product needs<br /><em>a responsible home.</em></h1>
+      <p class="lede">Hosting is not an afterthought or a logo selection. We connect product requirements to a clear deployment, ownership, operating, recovery, and migration model.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="mailto:hello@codeworkslabs.dev?subject=Hosting%20conversation">Discuss a hosting need <span>↗</span></a>
+        <a class="button button-secondary" href="/hosting/partners/">Hosting platforms &amp; partners</a>
+      </div>
+    </div>
+    <aside class="hosting-aside">
+      <strong>Selected engagements</strong>
+      <p>CodeWorksLabs is not a generic commodity host. Hosting work is scoped around a product, site, integration, or platform need where responsibilities can be made explicit.</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="hosting-grid">
+      {hostingAreas.map(([number, title, description]) => <article><span>{number}</span><h2>{title}</h2><p>{description}</p></article>)}
+    </div>
+  </section>
+
+  <section class="section operating-model">
+    <div><p class="eyebrow"><span></span> Responsibility model</p><h2>Useful boundaries,<br />before deployment.</h2></div>
+    <div>
+      <p class="large-copy">The implementation should say who builds the product, who operates the environment, and who owns the provider relationship.</p>
+      <div class="responsibility-map">
+        <article><h3>CodeWorksLabs</h3><p>Product architecture, integration behavior, build requirements, and deployable software.</p></article>
+        <article><h3>WebSynergetics</h3><p>Selected implementation, coordination, and operational work where that role is part of the engagement.</p></article>
+        <article><h3>Client or provider</h3><p>Account ownership, platform services, commercial terms, and any responsibilities assigned in the exact arrangement.</p></article>
+      </div>
+    </div>
+  </section>
+</Base>

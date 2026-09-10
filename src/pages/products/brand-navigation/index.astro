@@ -1,0 +1,67 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const features = [
+  ["One coherent model", "Direct links, submenu-only groups, or linked parents with a separate caret—one child level, intentionally."],
+  ["Responsive by design", "Compact mobile menu, wrapping mobile bar, or no mobile surface, plus per-item device visibility."],
+  ["Audience-aware", "Show destinations to everyone, anonymous visitors, or authenticated members."],
+  ["Administrator-friendly", "Structured object settings, validated input, palette-inheriting colors, and useful sample navigation."],
+  ["Portable setup", "Versioned JSON configuration bundles for backup and repeatable multi-site preparation."],
+  ["Embed-safe boundaries", "Site-global surfaces do not mount in supported Discourse embed contexts."],
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Brand Navigation",
+  description: "A brand header and submenu navigation theme component for Discourse.",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Discourse",
+  softwareVersion: "1.0.0-rc.1",
+  url: "https://codeworkslabs.dev/products/brand-navigation/",
+  downloadUrl: "https://github.com/CodeWorksLabs/brand-navigation/releases/tag/v1.0.0-rc.1",
+  license: "https://github.com/CodeWorksLabs/brand-navigation/blob/main/LICENSE",
+  author: { "@id": "https://codeworkslabs.dev/#organization" },
+};
+---
+
+<Base title="Brand Navigation — CodeWorksLabs" description="A brand header and submenu navigation theme component for Discourse." {structuredData} securityHref="https://docs.codeworkslabs.dev/brand-navigation/security/">
+  <section class="product-hero">
+    <div>
+      <p class="eyebrow"><span></span> Discourse theme component</p>
+      <h1>Give your community<br /><em>a coherent surface.</em></h1>
+      <p class="lede">Brand Navigation combines brand identity, primary links, one-level submenus, and compact header destinations in one responsive component.</p>
+      <div class="product-actions">
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://docs.codeworkslabs.dev/brand-navigation/install/">Install Brand Navigation <span>↗</span></a>
+          <a class="button button-secondary" href="https://docs.codeworkslabs.dev/brand-navigation/">Read documentation</a>
+          <a class="button button-secondary" href="https://discourse.demo.codeworkslabs.dev/">View demo status</a>
+        </div>
+        <nav class="product-utility-actions" aria-label="Brand Navigation resources">
+          <a href="https://github.com/CodeWorksLabs/brand-navigation/releases/tag/v1.0.0-rc.1">Release</a>
+          <a href="https://github.com/CodeWorksLabs/brand-navigation">Source</a>
+          <a href="https://github.com/CodeWorksLabs/brand-navigation/issues">Report an issue</a>
+        </nav>
+      </div>
+    </div>
+    <aside class="release-panel">
+      <p>Current release</p><strong>v1.0.0-rc.1</strong><span>Release candidate · prerelease</span>
+      <dl><div><dt>Maintainer</dt><dd>CodeWorksLabs</dd></div><div><dt>License</dt><dd>GPL-2.0-or-later</dd></div><div><dt>Model</dt><dd>One submenu level</dd></div></dl>
+    </aside>
+  </section>
+  <div class="independence-note">Independently maintained by CodeWorksLabs. Not an official Discourse product.</div>
+  <section class="section feature-section">
+    <div class="section-heading"><p class="eyebrow"><span></span> What it solves</p><h2>More than custom links.<br />Less than a page builder.</h2></div>
+    <div class="feature-grid">
+      {features.map(([title, description], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}
+    </div>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Install with Git</p><h2>Prepare on staging.<br />Publish when ready.</h2></div>
+    <div><code>https://github.com/CodeWorksLabs/brand-navigation.git</code><p>Use Discourse’s native component <strong>Enabled?</strong> control as the single activation switch. Attach it to a non-default staging theme first.</p><a class="text-link" href="https://docs.codeworkslabs.dev/brand-navigation/install/">Installation guide →</a></div>
+  </section>
+  <section class="limitations">
+    <strong>Release-candidate limits remain visible.</strong>
+    <p>Known-working builds are evidence points, not a minimum-version declaration. Complete human screen-reader and RTL acceptance remain open, and the full release-tag pin-and-return rollback workflow remains provisional.</p>
+  </section>
+</Base>

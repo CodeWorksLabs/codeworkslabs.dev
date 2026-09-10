@@ -1,0 +1,28 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const platforms = [
+  { name: "Astro", scope: "Web applications · content · documentation", description: "Fast, content-driven sites, integrations, documentation systems, and deliberately small publishing architecture.", demo: "https://astro.demo.codeworkslabs.dev/", accent: "cyan" },
+  { name: "Discourse", scope: "Community · themes · integrations", description: "Community interfaces, theme components, publishing connections, and operationally honest demonstrations.", demo: "https://discourse.demo.codeworkslabs.dev/", accent: "coral" },
+  { name: "Ghost", scope: "Publishing · membership · newsletters", description: "Editorial publishing, membership workflows, themes, content APIs, and integration services.", accent: "violet" },
+  { name: "Hugo", scope: "Static publishing · build systems", description: "Portable content architecture, fast static delivery, build pipelines, and integration-friendly sites.", accent: "amber" },
+  { name: "Statamic", scope: "Structured content · Laravel", description: "Editorial workflows, structured content, addons, database and flat-file modes, and static-generation paths.", accent: "mint" },
+  { name: "WordPress", scope: "Publishing · plugins · blocks", description: "Themes, plugins, block-editor experiences, publishing workflows, and carefully bounded integrations.", accent: "blue" },
+];
+---
+
+<Base title="Platforms — CodeWorksLabs" description="The active web platforms CodeWorksLabs builds products, integrations, and demonstrations for.">
+  <section class="page-intro platform-intro">
+    <p class="eyebrow"><span></span> Platform practice</p>
+    <h1>Platforms we work in.<br /><em>Not logos we collect.</em></h1>
+    <p class="lede">Astro, Discourse, Ghost, Hugo, Statamic, and WordPress are active CodeWorksLabs technical lanes. Each is approached on its own terms, with product work and demonstrations published only when their evidence is ready.</p>
+    <div class="hero-actions"><a class="button button-primary" href="https://demo.codeworkslabs.dev/">Explore demos <span>↗</span></a><a class="button button-secondary" href="/products/">View products</a></div>
+  </section>
+  <section class="section platform-directory" aria-labelledby="platform-directory-title">
+    <div class="section-heading"><p class="eyebrow"><span></span> Active platform lanes</p><h2 id="platform-directory-title">Use the platform.<br />Respect its model.</h2></div>
+    <div class="platform-grid">
+      {platforms.map((platform, index) => <article class={`platform-card ${platform.accent}`}><div class="card-top"><span>0{index + 1}</span><span>Active platform</span></div><p class="platform-scope">{platform.scope}</p><h3>{platform.name}</h3><p>{platform.description}</p>{platform.demo ? <a class="text-link" href={platform.demo}>Open demo collection <span>↗</span></a> : <span class="demo-pending">Dedicated demo collection in preparation</span>}</article>)}
+    </div>
+  </section>
+  <section class="section platform-proof"><div><p class="eyebrow"><span></span> Platform versus demo</p><h2>Capability is the lane.<br />A demo is the evidence.</h2></div><p class="large-copy">The Platforms directory explains where CodeWorksLabs works. The Demos directory shows what can currently be inspected. A platform does not disappear simply because its dedicated demonstration is still being prepared.</p></section>
+</Base>

@@ -1,0 +1,21 @@
+{
+  "name": "codeworkslabs-apex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "verify:image-rights": "node scripts/verify-image-rights.mjs",
+    "preview": "astro preview",
+    "deploy:dry-run": "wrangler deploy --dry-run --config wrangler.jsonc",
+    "deploy": "wrangler deploy --config wrangler.jsonc --strict"
+  },
+  "dependencies": {
+    "astro": "^7.1.1",
+    "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "wrangler": "4.123.0"
+  }
+}

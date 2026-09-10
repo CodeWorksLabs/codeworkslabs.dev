@@ -1,0 +1,76 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const title = "Demonstrate the claim. Record the evidence.";
+const description = "Why documentation, demonstrations, release identity, and recovery belong inside the product—not around its edges.";
+const articleData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description,
+  datePublished: "2026-09-09",
+  dateModified: "2026-09-09",
+  mainEntityOfPage: "https://codeworkslabs.dev/blog/demonstrate-the-claim/",
+  author: { "@id": "https://codeworkslabs.dev/#organization" },
+  publisher: { "@id": "https://codeworkslabs.dev/#organization" },
+};
+---
+
+<Base title={`${title} — CodeWorksLabs`} description={description} structuredData={articleData}>
+  <article class="blog-article">
+    <header class="article-header">
+      <a class="article-back" href="/blog/">← All field notes</a>
+      <p class="eyebrow"><span></span> Product operations</p>
+      <h1>Demonstrate the claim.<br /><em>Record the evidence.</em></h1>
+      <p class="article-dek">A product is not finished when its interface works once. It becomes dependable when someone can understand it, try it, identify what they are running, and recover when the happy path ends.</p>
+      <div class="article-byline"><span>CodeWorksLabs</span><time datetime="2026-09-09">September 9, 2026</time><span>6 minute read</span></div>
+    </header>
+
+    <div class="article-layout">
+      <aside class="article-rail" aria-label="Article summary">
+        <p>FIELD NOTE / 001</p>
+        <strong>Product work includes the evidence needed to operate, evaluate, and recover the thing being built.</strong>
+      </aside>
+      <div class="article-body">
+        <p class="article-lead">Software teams often treat the visible feature as the product and everything around it as finishing work. That distinction feels efficient right up until somebody needs to install the feature, verify a release, diagnose a failure, or return to a known-good state.</p>
+
+        <h2>Shipping is a chain, not a moment</h2>
+        <p>A release sits inside a chain of promises. The source identifies what changed. The package identifies what can be installed. Documentation explains how to use it. A demonstration shows that the important behavior exists somewhere real. Diagnostics help explain what happened. Recovery gives people a way back.</p>
+        <p>If one of those links is missing, the feature may still be impressive—but the product is harder to trust.</p>
+
+        <blockquote><p>A claim becomes useful when another person can inspect the evidence without needing the author in the room.</p></blockquote>
+
+        <h2>Documentation is part of behavior</h2>
+        <p>Good documentation does more than describe controls. It establishes sequence and boundary: prepare before publishing, test on staging, identify the exact release, record known limits, and say what remains unverified. Those details shape how the software is actually used.</p>
+        <p>This is especially important for software that changes a site-wide surface. A small configuration error can affect every visitor, so installation and rollback guidance are part of the interface even when they live on another page.</p>
+
+        <h2>Demos should reveal their boundaries</h2>
+        <p>A live URL is valuable evidence, but it does not prove everything. It may show a product operating in context without establishing the exact installed commit or exercising every interaction. Saying what a demo demonstrates—and what it does not—makes the example more credible, not less.</p>
+        <p>The useful question is not simply “Is there a demo?” It is “What can a visitor reasonably conclude from this demo?”</p>
+
+        <h2>Recovery is product work</h2>
+        <p>Rollback instructions, backups, restore tests, and known-good references rarely appear in launch screenshots. They matter most after attention has moved elsewhere. That makes them easy to postpone and expensive to rediscover.</p>
+        <p>A product with a clear return path gives maintainers room to make careful changes. Recovery is not an admission that the work may fail; it is evidence that the work can be operated responsibly.</p>
+
+        <h2>A practical release record</h2>
+        <p>A useful release record does not need to be elaborate. It should let a future maintainer answer a short set of questions:</p>
+        <ul>
+          <li>What exact source and package were released?</li>
+          <li>What environments and behaviors were actually checked?</li>
+          <li>Which limitations remain open?</li>
+          <li>Where can users see the product and ask for help?</li>
+          <li>How do we return to the previous known-good state?</li>
+        </ul>
+
+        <h2>The quiet benefit</h2>
+        <p>When evidence is created alongside the product, launches become less theatrical. The team does not have to reconstruct confidence from memory. Users do not have to guess which page is authoritative. Future maintainers inherit decisions rather than fragments.</p>
+        <p>That is the standard worth aiming for: demonstrate the claim, record the evidence, and leave the next person a product they can understand.</p>
+
+        <div class="article-end">
+          <p>Explore the working surfaces behind this approach.</p>
+          <div class="text-links"><a class="text-link" href="/products/">Products →</a><a class="text-link" href="/platforms/">Platforms →</a><a class="text-link" href="https://demo.codeworkslabs.dev/">Demos →</a></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>

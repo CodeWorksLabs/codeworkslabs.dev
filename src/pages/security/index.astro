@@ -1,0 +1,16 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="Security — CodeWorksLabs" description="How to report security concerns affecting CodeWorksLabs sites and products safely." securityHref="/security/">
+  <section class="page-intro security-intro">
+    <p class="eyebrow"><span></span> Security guidance</p>
+    <h1>Report carefully.<br /><em>Keep sensitive details private.</em></h1>
+    <p class="lede">Use this page to choose the right reporting route for a CodeWorksLabs site or product. Please do not publish credentials, personal data, private vulnerability details, or working exploit material in a public issue.</p>
+  </section>
+  <section class="section security-grid">
+    <article><p class="eyebrow"><span></span> Private report</p><h2>Potential vulnerability</h2><p>Email a concise description, the affected product or hostname, observed impact, and safe reproduction details. Remove secrets and unnecessary personal data before sending.</p><a class="button button-primary" href="mailto:security@codeworkslabs.dev">Email security <span>↗</span></a></article>
+    <article><p class="eyebrow"><span></span> Product routes</p><h2>Use canonical guidance</h2><p>Product-specific instructions take precedence when they exist. Brand Navigation maintains dedicated disclosure guidance; DiscussionBridge retains its independent support and product identity.</p><div class="text-links"><a class="text-link" href="https://docs.codeworkslabs.dev/brand-navigation/security/">Brand Navigation security →</a><a class="text-link" href="https://discussionbridge.dev/support/">DiscussionBridge support →</a></div></article>
+  </section>
+  <section class="limitations"><strong>Public issues are for non-sensitive defects.</strong><p>If a report could expose users, systems, credentials, private configuration, or an unpatched weakness, begin privately. CodeWorksLabs will route the report to the responsible product or site owner without claiming a response time that has not been formally established.</p></section>
+</Base>
