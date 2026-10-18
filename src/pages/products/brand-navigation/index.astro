@@ -1,67 +1,158 @@
 ---
 import Base from "../../../layouts/Base.astro";
 
+const releaseVersion = "v1.0.0-rc.4";
+const releaseUrl = `https://github.com/CodeWorksLabs/brand-navigation/releases/tag/${releaseVersion}`;
+const previewRoot = `https://raw.githubusercontent.com/CodeWorksLabs/brand-navigation/${releaseVersion}/docs/images/previews`;
+const description = "Add your brand, links and dropdown menus to Discourse, with optional links and icons in the forum header.";
+
 const features = [
-  ["One coherent model", "Direct links, submenu-only groups, or linked parents with a separate caret—one child level, intentionally."],
-  ["Responsive by design", "Compact mobile menu, wrapping mobile bar, or no mobile surface, plus per-item device visibility."],
-  ["Audience-aware", "Show destinations to everyone, anonymous visitors, or authenticated members."],
-  ["Administrator-friendly", "Structured object settings, validated input, palette-inheriting colors, and useful sample navigation."],
-  ["Portable setup", "Versioned JSON configuration bundles for backup and repeatable multi-site preparation."],
-  ["Embed-safe boundaries", "Site-global surfaces do not mount in supported Discourse embed contexts."],
+  ["Make the forum yours", "Show your brand name, logo, or both above or below Discourse’s header. Use separate logos for light and dark themes."],
+  ["Organize links into menus", "Add direct links and one level of dropdowns, with text, icons and optional descriptions. A linked parent can open a page while its arrow opens the menu."],
+  ["Choose what visitors see", "Show items to everyone, signed-in members or signed-out visitors, and choose desktop or mobile visibility. On phones, use a compact menu, a wrapping bar, or hide the bar."],
+  ["Add links to the forum header", "Place optional text links, icons, or both beside the forum logo or before the native controls. Choose left or right alignment and same-tab or new-tab behavior."],
+  ["Match your theme—or customize it", "Inherit theme colors, use the Appearance color pickers, or enter hex colors directly. Set normal and hover colors, plus independent desktop and mobile sizes for header links and icons."],
+  ["Manage and reuse your setup", "Edit Menu item and Submenu item rows in Discourse. Export a configuration backup or import it on another forum, and customize interface wording through Theme translations."],
+];
+
+const headerPreviews = [
+  { name: "Repeal OBBBA Forum", image: "repeal-obbba-header.jpg", href: "https://forum.repealobbba.org/", alt: "Repeal OBBBA Forum with a red navigation bar, dropdown menus and social icons in the forum header." },
+  { name: "The Bridge demonstration site", image: "the-bridge-header.jpg", href: "https://bridge.demo.discussionbridge.dev/", alt: "The Bridge with publishing menus, a Versions & Status text link and icons in the forum header." },
+  { name: "RVing Community", image: "rving-community-header.jpg", href: "https://www.rving.community/", alt: "RVing Community with a blue navigation bar, community menus and its own forum logo." },
+  { name: "DiscussionBridge Forum", image: "discussionbridge-header.jpg", href: "https://forum.discussionbridge.dev/", alt: "DiscussionBridge Forum with product, documentation and community navigation above its forum header." },
+];
+
+const settingsPreviews = [
+  { name: "Component settings", thumbnail: "brand-navigation-settings-thumb.png", image: "brand-navigation-settings.png", description: "Branding, colors, sizes, Appearance and configuration backups." },
+  { name: "Navigation-items editor", thumbnail: "brand-navigation-menu-editor-thumb.png", image: "brand-navigation-menu-editor.png", description: "Menus, submenu items, placement, link behavior and ordering." },
 ];
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Brand Navigation",
-  description: "A brand header and submenu navigation theme component for Discourse.",
+  description,
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Discourse",
-  softwareVersion: "1.0.0-rc.1",
+  softwareVersion: "1.0.0-rc.4",
   url: "https://codeworkslabs.dev/products/brand-navigation/",
-  downloadUrl: "https://github.com/CodeWorksLabs/brand-navigation/releases/tag/v1.0.0-rc.1",
+  downloadUrl: releaseUrl,
   license: "https://github.com/CodeWorksLabs/brand-navigation/blob/main/LICENSE",
   author: { "@id": "https://codeworkslabs.dev/#organization" },
 };
 ---
 
-<Base title="Brand Navigation — CodeWorksLabs" description="A brand header and submenu navigation theme component for Discourse." {structuredData} securityHref="https://docs.codeworkslabs.dev/brand-navigation/security/">
+<Base title="Brand Navigation — CodeWorksLabs" {description} {structuredData} securityHref="https://docs.codeworkslabs.dev/brand-navigation/security/">
   <section class="product-hero">
     <div>
-      <p class="eyebrow"><span></span> Discourse theme component</p>
-      <h1>Give your community<br /><em>a coherent surface.</em></h1>
-      <p class="lede">Brand Navigation combines brand identity, primary links, one-level submenus, and compact header destinations in one responsive component.</p>
+      <p class="eyebrow"><span></span> Brand Navigation · Discourse theme component</p>
+      <h1>Your brand.<br /><em>Clear navigation.</em></h1>
+      <p class="lede">Give your Discourse community a recognizable identity. Add a branded navigation bar with useful links and dropdown menus, plus optional links and icons in the forum’s own header.</p>
       <div class="product-actions">
         <div class="hero-actions">
           <a class="button button-primary" href="https://docs.codeworkslabs.dev/brand-navigation/install/">Install Brand Navigation <span>↗</span></a>
           <a class="button button-secondary" href="https://docs.codeworkslabs.dev/brand-navigation/">Read documentation</a>
-          <a class="button button-secondary" href="https://discourse.demo.codeworkslabs.dev/">View demo status</a>
+          <a class="button button-secondary" href="#previews">See previews</a>
         </div>
         <nav class="product-utility-actions" aria-label="Brand Navigation resources">
-          <a href="https://github.com/CodeWorksLabs/brand-navigation/releases/tag/v1.0.0-rc.1">Release</a>
+          <a href={releaseUrl}>RC4 release</a>
           <a href="https://github.com/CodeWorksLabs/brand-navigation">Source</a>
           <a href="https://github.com/CodeWorksLabs/brand-navigation/issues">Report an issue</a>
         </nav>
       </div>
     </div>
     <aside class="release-panel">
-      <p>Current release</p><strong>v1.0.0-rc.1</strong><span>Release candidate · prerelease</span>
-      <dl><div><dt>Maintainer</dt><dd>CodeWorksLabs</dd></div><div><dt>License</dt><dd>GPL-2.0-or-later</dd></div><div><dt>Model</dt><dd>One submenu level</dd></div></dl>
+      <p>Current release</p><strong>{releaseVersion}</strong><span>Release candidate · prerelease</span>
+      <dl><div><dt>Maintainer</dt><dd>CodeWorksLabs</dd></div><div><dt>License</dt><dd>GPL-2.0-or-later</dd></div><div><dt>Platform</dt><dd>Discourse</dd></div></dl>
+      <a class="text-link release-link" href={releaseUrl}>Download RC4 and read the release notes →</a>
     </aside>
   </section>
   <div class="independence-note">Independently maintained by CodeWorksLabs. Not an official Discourse product.</div>
   <section class="section feature-section">
-    <div class="section-heading"><p class="eyebrow"><span></span> What it solves</p><h2>More than custom links.<br />Less than a page builder.</h2></div>
+    <div class="section-heading"><p class="eyebrow"><span></span> What you can do</p><h2>Your links.<br />In the right places.</h2></div>
     <div class="feature-grid">
       {features.map(([title, description], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}
     </div>
   </section>
+  <section class="section preview-section" id="previews" aria-labelledby="previews-heading">
+    <div class="section-heading"><p class="eyebrow"><span></span> Preview</p><h2 id="previews-heading">See it on<br />real communities.</h2></div>
+    <p class="section-intro">These desktop screenshots show Brand Navigation in use while signed in. Open a screenshot for a closer look, or visit the community. Live navigation may change.</p>
+    <div class="header-previews">
+      {headerPreviews.map((preview) => (
+        <figure>
+          <figcaption><h3>{preview.name}</h3><a class="text-link" href={preview.href}>Visit the site ↗</a></figcaption>
+          <a class="preview-image" href={`${previewRoot}/${preview.image}`} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge ${preview.name} header screenshot (opens in a new tab)`}>
+            <img src={`${previewRoot}/${preview.image}`} alt={preview.alt} width="1665" height="101" loading="lazy" />
+          </a>
+        </figure>
+      ))}
+    </div>
+    <div class="settings-preview-heading"><h3>Inside the administration settings</h3><p>Compact previews—select either image to open the full-size screenshot in a new tab.</p></div>
+    <div class="settings-previews">
+      {settingsPreviews.map((preview) => (
+        <article>
+          <a class="settings-image" href={`${previewRoot}/${preview.image}`} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge ${preview.name} screenshot (opens in a new tab)`}>
+            <img src={`${previewRoot}/${preview.thumbnail}`} alt={`Preview of Brand Navigation’s ${preview.name.toLowerCase()}.`} width="320" height="192" loading="lazy" />
+          </a>
+          <div><h3>{preview.name}</h3><p>{preview.description}</p></div>
+        </article>
+      ))}
+    </div>
+    <p class="preview-guide"><a class="text-link" href="https://docs.codeworkslabs.dev/brand-navigation/source/administrator-guide/#settings-reference">Read the settings reference →</a></p>
+  </section>
   <section class="section install-band">
-    <div><p class="eyebrow"><span></span> Install with Git</p><h2>Prepare on staging.<br />Publish when ready.</h2></div>
-    <div><code>https://github.com/CodeWorksLabs/brand-navigation.git</code><p>Use Discourse’s native component <strong>Enabled?</strong> control as the single activation switch. Attach it to a non-default staging theme first.</p><a class="text-link" href="https://docs.codeworkslabs.dev/brand-navigation/install/">Installation guide →</a></div>
+    <div><p class="eyebrow"><span></span> Installation</p><h2>Set it up.<br />Make it yours.</h2></div>
+    <div><code>https://github.com/CodeWorksLabs/brand-navigation.git</code><p>In Discourse, install a component from this Git repository. Attach it to a non-default staging theme, turn <strong>Enabled?</strong> on, then configure and preview it before using it on your live theme.</p><a class="text-link" href="https://docs.codeworkslabs.dev/brand-navigation/install/">Follow the installation guide →</a></div>
+  </section>
+  <section class="section community-section" aria-labelledby="community-heading">
+    <div class="section-heading"><p class="eyebrow"><span></span> Help and ideas</p><h2 id="community-heading">A place to ask.<br />A place to contribute.</h2></div>
+    <div class="community-links">
+      <article><h3>Get help</h3><p>Ask setup questions, troubleshoot a problem or share your configuration in Brand Navigation’s dedicated Support area.</p><a class="text-link" href="https://forum.codeworkslabs.dev/c/brand-navigation/support/7">Brand Navigation Support →</a></article>
+      <article><h3>Suggest an improvement</h3><p>Share what your community needs and discuss existing requests. Each idea has its own topic.</p><a class="text-link" href="https://forum.codeworkslabs.dev/c/brand-navigation/feature-requests/8">Feature Requests →</a></article>
+      <article><h3>Follow the roadmap</h3><p>See what is proposed, planned, in progress and released. Proposals, including individual social icon colors, are not features already included in RC4.</p><a class="text-link" href="https://forum.codeworkslabs.dev/t/brand-navigation-roadmap/14">Brand Navigation roadmap →</a></article>
+    </div>
   </section>
   <section class="limitations">
-    <strong>Release-candidate limits remain visible.</strong>
-    <p>Known-working builds are evidence points, not a minimum-version declaration. Complete human screen-reader and RTL acceptance remain open, and the full release-tag pin-and-return rollback workflow remains provisional.</p>
+    <strong>Try it with your theme first.</strong>
+    <p>RC4 is a release candidate. Preview your navigation on desktop and mobile, keep labels short, and back up your settings before updating. See <a href="https://docs.codeworkslabs.dev/brand-navigation/updates-and-compatibility/">tested Discourse versions and compatibility guidance</a> for the current checks and limits.</p>
   </section>
 </Base>
+
+<style>
+  .product-hero > div { min-width: 0; }
+  .product-hero .eyebrow { line-height: 1.6; }
+  .release-link { display: inline-block; margin-top: 1.5rem; line-height: 1.6; }
+  .preview-section, .community-section { border-top: 1px solid var(--line); }
+  .section-intro { margin-top: 2rem; max-width: 48rem; color: var(--muted); line-height: 1.7; }
+  .header-previews { display: grid; gap: 2rem; margin-top: 3rem; }
+  .header-previews figure { margin: 0; min-width: 0; }
+  .header-previews figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .75rem; margin-bottom: .85rem; }
+  .header-previews h3 { font-size: 1rem; }
+  .preview-image { display: block; border: 1px solid var(--line); background: white; }
+  .preview-image img { display: block; width: 100%; height: auto; }
+  .preview-image:focus-visible, .settings-image:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
+  .settings-preview-heading { margin-top: 3.5rem; }
+  .settings-preview-heading h3 { font-size: 1.5rem; }
+  .settings-preview-heading p, .settings-previews p { margin-top: .75rem; color: var(--muted); line-height: 1.65; }
+  .settings-previews { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+  .settings-previews article { border: 1px solid var(--line); background: var(--ink-soft); }
+  .settings-image { display: grid; place-items: center; min-height: 12rem; padding: 1rem; background: white; }
+  .settings-image img { display: block; max-width: 100%; width: 320px; height: auto; }
+  .settings-previews article > div { padding: 1.5rem; }
+  .settings-previews h3 { font-size: 1.1rem; }
+  .preview-guide { margin-top: 1.5rem; }
+  .community-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .community-links article { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .community-links h3 { font-size: 1.3rem; }
+  .community-links p { margin: 1rem 0 1.5rem; color: var(--muted); line-height: 1.7; }
+  .community-links .text-link { display: inline-block; line-height: 1.6; }
+  .limitations a { color: var(--cyan); text-decoration: underline; text-underline-offset: .2em; }
+  @media (max-width: 800px) {
+    .settings-previews, .community-links { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .product-hero h1 { font-size: clamp(3rem, 14vw, 4.25rem); }
+    .release-panel { padding: 1.5rem; }
+    .release-panel > strong { font-size: 2rem; }
+  }
+</style>
