@@ -11,6 +11,41 @@ const products = [
     public: true,
   },
   {
+    name: "Discourse Network by CWL",
+    type: "DiscussionBridge add-on plugin",
+    status: "Planned",
+    summary: "Discourse Network by CWL is an add-on plugin for DiscussionBridge that coordinates members publishing their own selected content to other Discourse forums and to websites and publishing platforms.",
+    href: "/products/discourse-network/",
+  },
+  {
+    name: "Discourse Federation by CWL",
+    type: "Standalone Discourse plugin",
+    status: "Planned",
+    summary: "Discourse Federation by CWL is a standalone plugin for Discourse that connects Discourse forums for sharing and promoting conversations and participating in discussions locally or at their source.",
+    href: "/products/discourse-federation/",
+  },
+  {
+    name: "Comments Migrator by CWL",
+    type: "Platform-specific migration tools",
+    status: "Planned",
+    summary: "Comments Migrator by CWL brings source content and its associated comments into Discourse, preserving them together as a topic and its discussion. It requires DiscussionBridge, which makes and maintains the ongoing connection between the source content and its continuing Discourse discussion.",
+    href: "/products/comments-migrator/",
+  },
+  {
+    name: "DiscussionBridge Platform Migrator by CWL",
+    type: "Optional plugin for DiscussionBridge users",
+    status: "Planned",
+    summary: "Platform-to-platform migration lets DiscussionBridge users change publishing platforms while keeping their existing Discourse conversations and connections to the published content.",
+    href: "/products/discussionbridge-platform-migrator/",
+  },
+  {
+    name: "DiscussionBridge ActivityPub",
+    type: "Organizational sharing controls",
+    status: "Exploratory",
+    summary: "Explore organizational controls over outward sharing, receiving, forwarding and promotion, potentially alongside the existing Discourse ActivityPub plugin.",
+    href: "/products/discussionbridge-activitypub/",
+  },
+  {
     name: "Astro Analytics",
     type: "Astro integration",
     status: "Experimental private development",
@@ -75,7 +110,7 @@ const lifecycle = [
       </article>
     ))}
     <article class="catalog-row independent">
-      <span class="catalog-number">08</span>
+      <span class="catalog-number">{String(products.length + 1).padStart(2, "0")}</span>
       <div><p class="product-type">Independent product ecosystem</p><h2>DiscussionBridge</h2></div>
       <p class="catalog-summary">Made by CodeWorksLabs, with its own site, documentation, demos, community, and product identity.</p>
       <div class="catalog-status"><span>Independent · Alpha</span><a href="/products/discussionbridge/">View product ↗</a></div>

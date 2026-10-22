@@ -1,0 +1,40 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const description = "Explore organizational controls over outward sharing, receiving, forwarding and promotion, potentially alongside the existing Discourse ActivityPub plugin.";
+const discussionUrl = "https://forum.codeworkslabs.dev/t/activitypub-exploratory-sharing-controls-and-organizational-use-cases/21";
+---
+
+<Base title="DiscussionBridge ActivityPub — CodeWorksLabs" {description}>
+  <section class="product-hero">
+    <div>
+      <p class="eyebrow"><span></span> DiscussionBridge ActivityPub</p>
+      <h1>ActivityPub<br /><em>sharing controls.</em></h1>
+      <p class="lede">{description}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={discussionUrl}>Discuss ActivityPub controls and use cases <span>↗</span></a>
+      </div>
+    </div>
+    <aside class="release-panel">
+      <p>Workstream status</p><strong>Exploratory</strong><span>Optional outward content federation</span>
+      <dl><div><dt>Separate plugin need</dt><dd>Not established</dd></div><div><dt>Packaging</dt><dd>Open</dd></div><div><dt>Maker</dt><dd>CodeWorksLabs</dd></div></dl>
+    </aside>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> The investigation</p><h2>Organizational needs.<br /><em>Existing controls.</em></h2></div>
+    <div>
+      <p>The investigation concerns optional outward content federation. ActivityPub is not a requirement for the internal Network/Federation connection model.</p>
+      <p>We are comparing organizational workflows with the existing Discourse ActivityPub plugin and its controls. A separate CWL plugin need has not been established. Implementation, dependencies and packaging remain open.</p>
+      <div class="text-links"><a class="text-link" href="/products/discourse-network/">Discourse Network →</a><a class="text-link" href="/products/discourse-federation/">Discourse Federation →</a></div>
+    </div>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Help shape the investigation</p><h2>Who selects?<br /><em>Who shares?</em></h2></div>
+    <div>
+      <p>Tell us who should be able to select content for outward sharing, which destinations and audiences matter, and where current controls fall short in your actual workflow.</p>
+      <p>Examples of needs already met are useful too. Where possible, identify the plugin version and setting involved.</p>
+      <a class="text-link" href={discussionUrl}>Discuss sharing controls and organizational use cases →</a>
+    </div>
+  </section>
+  <section class="limitations"><strong>Exploratory workstream.</strong><p>This investigation is not a commitment to build another ActivityPub plugin. Product input will help establish whether additional tooling is needed.</p></section>
+</Base>

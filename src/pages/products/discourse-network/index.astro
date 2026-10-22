@@ -1,0 +1,41 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const description = "Discourse Network by CWL is an add-on plugin for DiscussionBridge that coordinates members publishing their own selected content to other Discourse forums and to websites and publishing platforms.";
+const discussionUrl = "https://forum.codeworkslabs.dev/t/discourse-network-by-cwl-plans-updates-and-your-use-cases/17";
+---
+
+<Base title="Discourse Network by CWL — CodeWorksLabs" {description}>
+  <section class="product-hero">
+    <div>
+      <p class="eyebrow"><span></span> Discourse Network by CWL</p>
+      <h1>Discourse<br /><em>Network</em></h1>
+      <p class="lede">{description}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={discussionUrl}>Discuss Network and share your use case <span>↗</span></a>
+        <a class="button button-secondary" href="/products/discussionbridge/">About DiscussionBridge</a>
+      </div>
+    </div>
+    <aside class="release-panel">
+      <p>Product status</p><strong>Planned</strong><span>DiscussionBridge add-on plugin</span>
+      <dl><div><dt>Requires</dt><dd>DiscussionBridge</dd></div><div><dt>Federation</dt><dd>Not required</dd></div><div><dt>Maker</dt><dd>CodeWorksLabs</dd></div></dl>
+    </aside>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Autonomous forums</p><h2>Join a Network.<br /><em>Operate your own.</em></h2></div>
+    <div>
+      <p>Member forums remain autonomous, retaining control over their content and participation. A forum can join another Network while operating its own—for example, a State forum joining a National Network while running its own Network for County and District forums.</p>
+      <p>Network requires DiscussionBridge and works without Discourse Federation. Member participation does not transfer ownership of content or create publication permission by itself.</p>
+      <a class="text-link" href="/products/discourse-federation/">Explore Discourse Federation →</a>
+    </div>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Help shape it</p><h2>Your organization.<br /><em>Your use cases.</em></h2></div>
+    <div>
+      <p>Membership, onboarding and the operation of connected Networks are being defined while retaining each forum’s publication control.</p>
+      <p>Tell us how your forums are organized, which content each forum would select for publication and where that content needs to appear.</p>
+      <a class="text-link" href={discussionUrl}>Follow plans, contribute examples and suggest improvements →</a>
+    </div>
+  </section>
+  <section class="limitations"><strong>Planned product.</strong><p>Release coverage and installation details remain to be established. Follow the forum discussion for updates and share the workflows your community needs.</p></section>
+</Base>

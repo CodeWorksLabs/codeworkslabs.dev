@@ -2,12 +2,12 @@
 import Base from "../../../layouts/Base.astro";
 
 const capabilities = [
-  ["One durable discussion", "Keep a stable Discourse conversation while content moves between platforms, frameworks, and themes."],
+  ["Connected discussions", "Connect published content to its corresponding Discourse conversation through DiscussionBridge and its platform adapters."],
   ["Platform-native products", "Astro, Ghost, Hugo, Statamic, and WordPress integrations preserve each platform’s own publishing lifecycle."],
   ["Three presentations", "Choose Simple, Full, or fullInteractive without confusing those distinct product promises."],
   ["Governed identity", "Durable Bridge Records connect canonical pages and topics with bounded direction, ownership, and visibility."],
   ["Safe operations", "Idempotent retry, fail-closed reconciliation, diagnostics, and recovery are designed into the workflow."],
-  ["Live proof", "Eight public publishing profiles demonstrate real content paths rather than a compatibility-logo claim."],
+  ["Publishing profiles", "Consult the DiscussionBridge versions and live-status record for publishing-profile and demonstration evidence."],
 ];
 
 const structuredData = {
@@ -43,15 +43,24 @@ const structuredData = {
       </div>
     </div>
     <aside class="release-panel">
-      <p>Current family status</p><strong>Alpha.19</strong><span>Coordinated candidate · gated promotion</span>
-      <dl><div><dt>Live demos</dt><dd>Alpha.18</dd></div><div><dt>Maker</dt><dd>CodeWorksLabs</dd></div><div><dt>Identity</dt><dd>Independent ecosystem</dd></div><div><dt>Lifecycle</dt><dd>Alpha</dd></div></dl>
+      <p>Product lifecycle</p><strong>Alpha</strong><span>See the product status record for exact versions and evidence.</span>
+      <dl><div><dt>Maker</dt><dd>CodeWorksLabs</dd></div><div><dt>Identity</dt><dd>Independent ecosystem</dd></div></dl>
+      <div class="product-utility-actions"><a href="https://docs.discussionbridge.dev/versions-and-live-status/">Versions and live status →</a></div>
     </aside>
   </section>
   <div class="independence-note">Made by CodeWorksLabs. DiscussionBridge keeps its own site, documentation, demos, community, repositories, and product identity.</div>
   <section class="section feature-section">
-    <div class="section-heading"><p class="eyebrow"><span></span> What it preserves</p><h2>Content can move.<br />Community memory remains.</h2></div>
+    <div class="section-heading"><p class="eyebrow"><span></span> What it connects</p><h2>Published content.<br />Continuing discussions.</h2></div>
     <div class="feature-grid">
       {capabilities.map(([title, description], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}
+    </div>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Planned optional plugin</p><h2>Change platforms.<br /><em>Keep the discussion.</em></h2></div>
+    <div>
+      <p>Platform-to-platform migration lets DiscussionBridge users change publishing platforms while keeping their existing Discourse conversations and connections to the published content.</p>
+      <p>DiscussionBridge Platform Migrator by CWL is planned as a separate optional plugin communicating with DB. Platform-pair and version coverage, compatibility and delivery arrangements remain open.</p>
+      <a class="text-link" href="/products/discussionbridge-platform-migrator/">Explore the Platform Migrator plan →</a>
     </div>
   </section>
   <section class="section install-band">
@@ -66,6 +75,6 @@ const structuredData = {
   </section>
   <section class="limitations">
     <strong>Alpha remains an evidence boundary.</strong>
-    <p>The public profiles and coordinated candidate are real, but source, package, installed runtime, deployment, human acceptance, review, and release remain separate gates. The DiscussionBridge status record names what is proven now.</p>
+    <p>The DiscussionBridge versions and live-status record identifies current releases, demonstrations and evidence. Platform Migrator is planned; this page does not claim that platform migration is available in the current DiscussionBridge release.</p>
   </section>
 </Base>

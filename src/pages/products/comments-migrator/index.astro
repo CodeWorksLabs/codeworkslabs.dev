@@ -1,0 +1,49 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const description = "Comments Migrator by CWL brings source content and its associated comments into Discourse, preserving them together as a topic and its discussion. It requires DiscussionBridge, which makes and maintains the ongoing connection between the source content and its continuing Discourse discussion.";
+const discussionUrl = "https://forum.codeworkslabs.dev/t/comments-migrator-by-cwl-plans-updates-and-your-migration-cases/19";
+const commentSystems = ["WordPress native comments", "Ghost native comments", "Drupal native comments", "Disqus", "Hyvor Talk", "giscus"];
+---
+
+<Base title="Comments Migrator by CWL — CodeWorksLabs" {description}>
+  <section class="product-hero">
+    <div>
+      <p class="eyebrow"><span></span> Comments Migrator by CWL</p>
+      <h1>Comments<br /><em>Migrator</em></h1>
+      <p class="lede">{description}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={discussionUrl}>Discuss Comments Migrator and share your migration case <span>↗</span></a>
+        <a class="button button-secondary" href="/products/discussionbridge/">About DiscussionBridge</a>
+      </div>
+    </div>
+    <aside class="release-panel">
+      <p>Product status</p><strong>Planned</strong><span>Platform-specific migration tools</span>
+      <dl><div><dt>Requires</dt><dd>DiscussionBridge</dd></div><div><dt>Edition rollout</dt><dd>To be defined</dd></div><div><dt>Maker</dt><dd>CodeWorksLabs</dd></div></dl>
+    </aside>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> How it fits</p><h2>Source content.<br /><em>Continuing discussion.</em></h2></div>
+    <div>
+      <p>The platform adapter supplies the source content and identity. DiscussionBridge creates or resolves its corresponding topic and maintains the permanent relationship. Comments Migrator brings the associated comments into that topic as replies and manages the migration job.</p>
+      <p>DiscussionBridge and the adapter continue maintaining the connection after import.</p>
+      <p>Public tooling, internal fee-for-service tooling, or both remain open.</p>
+    </div>
+  </section>
+  <section class="section feature-section">
+    <div class="section-heading"><p class="eyebrow"><span></span> Planned initial selection</p><h2>Platform editions.<br /><em>The same six systems.</em></h2></div>
+    <p class="boundary-note">Each platform migrator will use the same selected comment-system list. Platform-edition rollout, version compatibility and completed import coverage remain to be established.</p>
+    <div class="feature-grid">
+      {commentSystems.map((system, index) => <article><span>0{index + 1}</span><h3>{system}</h3><p>Selected for the initial list in every platform edition.</p></article>)}
+    </div>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Help shape it</p><h2>Your migration.<br /><em>What must survive?</em></h2></div>
+    <div>
+      <p>Share your publishing platform and version, comment system, approximate volume and what must be preserved. Examples involving replies, authorship, dates, moderation or content that has moved are especially useful.</p>
+      <p>Use anonymized examples rather than posting private exports or access credentials.</p>
+      <a class="text-link" href={discussionUrl}>Share your migration case and follow updates →</a>
+    </div>
+  </section>
+  <section class="limitations"><strong>Planned product.</strong><p>The initial list is selected. Platform release order, versions and delivery arrangements remain to be defined. The list does not announce completed importers.</p></section>
+</Base>
