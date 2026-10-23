@@ -46,13 +46,15 @@ const products = [
     href: "/products/discussionbridge-activitypub/",
   },
   {
-    name: "Astro Analytics",
+    name: "Analytics for Astro",
+    id: "astro-analytics",
     type: "Astro integration",
     status: "Experimental private development",
     summary: "Provider-flexible analytics with explicit enablement, bounded event queueing, and a Starlight wrapper.",
   },
   {
-    name: "Astro Bluesky Comments",
+    name: "Bluesky Comments for Astro",
+    id: "astro-bluesky-comments",
     type: "Astro integration",
     status: "Experimental private development",
     summary: "A reusable integration for connecting Bluesky conversation to Astro publishing.",
@@ -102,7 +104,7 @@ const lifecycle = [
   </section>
   <section class="catalog section">
     {products.map((product, index) => (
-      <article class="catalog-row" id={product.name.toLowerCase().replaceAll(" ", "-")}>
+      <article class="catalog-row" id={product.id ?? product.name.toLowerCase().replaceAll(" ", "-")}>
         <span class="catalog-number">{String(index + 1).padStart(2, "0")}</span>
         <div><p class="product-type">{product.type}</p><h2>{product.name}</h2></div>
         <p class="catalog-summary">{product.summary}</p>
