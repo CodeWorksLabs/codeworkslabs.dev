@@ -24,5 +24,29 @@ const platforms = [
       {platforms.map((platform, index) => <article class={`platform-card ${platform.accent}`}><div class="card-top"><span>0{index + 1}</span><span>Active platform</span></div><p class="platform-scope">{platform.scope}</p><h3>{platform.name}</h3><p>{platform.description}</p>{platform.demo ? <a class="text-link" href={platform.demo}>Open demo collection <span>↗</span></a> : <span class="demo-pending">Dedicated demo collection in preparation</span>}</article>)}
     </div>
   </section>
+  <section class="section recommended-tool" aria-labelledby="gitcms-title">
+    <article class="gitcms-feature">
+      <div>
+        <p class="eyebrow"><span></span> Tools we use and recommend</p>
+        <h2 id="gitcms-title">GitCMS</h2>
+        <p class="gitcms-descriptor">Visual editing for content stored in Git</p>
+      </div>
+      <div class="gitcms-copy">
+        <p>Founded by Waishnav, GitCMS provides visual editing for Markdown and MDX content in repository-backed websites, with support for Astro, Hugo and other frameworks.</p>
+        <p>We’ve licensed it for several sites, including <a href="https://onebigbeautifulbill.us/">OneBigBeautifulBill.us</a> and <a href="https://www.repealobbba.org/">RepealOBBBA.org</a>, and value Waishnav’s advice and support.</p>
+        <a class="text-link" href="https://gitcms.dev/">Explore GitCMS <span>↗</span></a>
+      </div>
+    </article>
+  </section>
   <section class="section platform-proof"><div><p class="eyebrow"><span></span> Platform versus demo</p><h2>Capability is the lane.<br />A demo is the evidence.</h2></div><p class="large-copy">The Platforms directory explains where CodeWorksLabs works. The Demos directory shows what can currently be inspected. A platform does not disappear simply because its dedicated demonstration is still being prepared.</p></section>
 </Base>
+
+<style>
+  .recommended-tool { padding-top: 0; }
+  .gitcms-feature { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 2rem; padding: 2rem; border: 1px solid var(--line); background: var(--ink-soft); }
+  .gitcms-feature h2 { margin-top: 1.3rem; font-size: clamp(2.5rem, 5vw, 4rem); }
+  .gitcms-descriptor { margin-top: 1rem; color: #dce4f2; font-weight: 700; line-height: 1.45; }
+  .gitcms-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; min-width: 0; color: var(--muted); line-height: 1.65; }
+  .gitcms-copy p a { color: var(--cyan); text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+  @media (max-width: 760px) { .gitcms-feature { grid-template-columns: 1fr; padding: 1.5rem; } }
+</style>

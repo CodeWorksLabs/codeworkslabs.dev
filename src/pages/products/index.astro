@@ -3,51 +3,9 @@ import Base from "../../layouts/Base.astro";
 
 const products = [
   {
-    name: "Brand Navigation",
-    type: "Discourse theme component",
-    status: "Release candidate",
-    summary: "A coherent brand header, one-level navigation model, and structured administration surface for Discourse.",
-    href: "/products/brand-navigation/",
-    public: true,
-  },
-  {
-    name: "Discourse Network by CWL",
-    type: "DiscussionBridge add-on plugin",
-    status: "In process - Seeking Inputs",
-    summary: "Discourse Network by CWL is an add-on plugin for DiscussionBridge that coordinates members publishing their own selected content to other Discourse forums and to websites and publishing platforms.",
-    href: "/products/discourse-network/",
-  },
-  {
-    name: "Discourse Federation by CWL",
-    type: "Standalone Discourse plugin",
-    status: "In process - Seeking Inputs",
-    summary: "Discourse Federation by CWL is a standalone plugin for Discourse that connects Discourse forums for sharing and promoting conversations and participating in discussions locally or at their source.",
-    href: "/products/discourse-federation/",
-  },
-  {
-    name: "Comments Migrator by CWL",
-    type: "Platform-specific migration tools",
-    status: "In process - Seeking Inputs",
-    summary: "Comments Migrator by CWL brings source content and its associated comments into Discourse, preserving them together as a topic and its discussion. It requires DiscussionBridge, which makes and maintains the ongoing connection between the source content and its continuing Discourse discussion.",
-    href: "/products/comments-migrator/",
-  },
-  {
-    name: "DiscussionBridge Platform Migrator by CWL",
-    type: "Optional plugin for DiscussionBridge users",
-    status: "In process - Seeking Inputs",
-    summary: "Platform-to-platform migration lets DiscussionBridge users change publishing platforms while keeping their existing Discourse conversations and connections to the published content.",
-    href: "/products/discussionbridge-platform-migrator/",
-  },
-  {
-    name: "DiscussionBridge ActivityPub",
-    type: "Organizational sharing controls",
-    status: "Exploratory",
-    summary: "Explore organizational controls over outward sharing, receiving, forwarding and promotion, potentially alongside the existing Discourse ActivityPub plugin.",
-    href: "/products/discussionbridge-activitypub/",
-  },
-  {
     name: "Analytics for Astro",
     id: "astro-analytics",
+    group: "astro",
     type: "Astro integration",
     status: "Experimental private development",
     summary: "Provider-flexible analytics with explicit enablement, bounded event queueing, and a Starlight wrapper.",
@@ -55,34 +13,103 @@ const products = [
   {
     name: "Bluesky Comments for Astro",
     id: "astro-bluesky-comments",
+    group: "astro",
     type: "Astro integration",
     status: "Experimental private development",
     summary: "A reusable integration for connecting Bluesky conversation to Astro publishing.",
   },
   {
+    name: "Brand Navigation",
+    group: "discourse",
+    type: "Discourse theme component",
+    status: "Release candidate",
+    summary: "A coherent brand header, one-level navigation model, and structured administration surface for Discourse.",
+    href: "/products/brand-navigation/",
+    public: true,
+  },
+  {
+    name: "DiscussionBridge",
+    group: "discourse",
+    independent: true,
+    type: "Independent product ecosystem",
+    status: "Independent · Alpha",
+    summary: "Made by CodeWorksLabs, with its own site, documentation, demos, community, and product identity.",
+    href: "/products/discussionbridge/",
+  },
+  {
+    name: "DiscussionBridge Platform Migrator by CWL",
+    group: "discourse",
+    type: "Optional plugin for DiscussionBridge users",
+    status: "In process - Seeking Inputs",
+    summary: "Platform-to-platform migration lets DiscussionBridge users change publishing platforms while keeping their existing Discourse conversations and connections to the published content.",
+    href: "/products/discussionbridge-platform-migrator/",
+  },
+  {
+    name: "Discourse Network by CWL",
+    group: "discourse",
+    type: "DiscussionBridge add-on plugin",
+    status: "In process - Seeking Inputs",
+    summary: "Discourse Network by CWL is an add-on plugin for DiscussionBridge that coordinates members publishing their own selected content to other Discourse forums and to websites and publishing platforms.",
+    href: "/products/discourse-network/",
+  },
+  {
+    name: "Discourse Federation by CWL",
+    group: "discourse",
+    type: "Standalone Discourse plugin",
+    status: "In process - Seeking Inputs",
+    summary: "Discourse Federation by CWL is a standalone plugin for Discourse that connects Discourse forums for sharing and promoting conversations and participating in discussions locally or at their source.",
+    href: "/products/discourse-federation/",
+  },
+  {
+    name: "Comments Migrator by CWL",
+    group: "discourse",
+    type: "Platform-specific migration tools",
+    status: "In process - Seeking Inputs",
+    summary: "Comments Migrator by CWL brings source content and its associated comments into Discourse, preserving them together as a topic and its discussion. It requires DiscussionBridge, which makes and maintains the ongoing connection between the source content and its continuing Discourse discussion.",
+    href: "/products/comments-migrator/",
+  },
+  {
+    name: "DiscussionBridge ActivityPub",
+    group: "discourse",
+    type: "Organizational sharing controls",
+    status: "Exploratory",
+    summary: "Explore organizational controls over outward sharing, receiving, forwarding and promotion, potentially alongside the existing Discourse ActivityPub plugin.",
+    href: "/products/discussionbridge-activitypub/",
+  },
+  {
     name: "Purpose Built Portal",
+    group: "future",
     type: "Reusable product framework",
     status: "Planned",
     summary: "Portable, CMS-agnostic models and implementation patterns for purpose-built portals.",
   },
   {
     name: "LaunchLight",
+    group: "future",
     type: "Publishing system",
     status: "Planned",
     summary: "A product lane exploring a reusable Astro and Starlight venture-publishing system.",
   },
   {
     name: "AdvocacyForge",
+    group: "future",
     type: "Advocacy platform",
     status: "Concept",
     summary: "A future product for manageable campaigns, organizing, and owned community infrastructure.",
   },
   {
     name: "ChapterOps",
+    group: "future",
     type: "Organization platform",
     status: "Concept",
     summary: "A future product for organizations operating national, regional, and local chapters.",
   },
+];
+
+const groups = [
+  { id: "astro", label: "Astro" },
+  { id: "discourse", label: "Discourse and DiscussionBridge" },
+  { id: "future", label: "Future ideas" },
 ];
 
 const lifecycle = [
@@ -102,22 +129,31 @@ const lifecycle = [
     <h1>Tools with a clear job<br /><em>and an honest status.</em></h1>
     <p class="lede">Public releases, experiments, and longer-horizon product ideas live together here—but they are never presented as equally finished.</p>
   </section>
-  <section class="catalog section">
-    {products.map((product, index) => (
-      <article class="catalog-row" id={product.id ?? product.name.toLowerCase().replaceAll(" ", "-")}>
-        <span class="catalog-number">{String(index + 1).padStart(2, "0")}</span>
-        <div><p class="product-type">{product.type}</p><h2>{product.name}</h2></div>
-        <p class="catalog-summary">{product.summary}</p>
-        <div class="catalog-status"><span>{product.status}</span>{product.href && <a href={product.href}>View product ↗</a>}</div>
-      </article>
+  <div class="catalog section">
+    {groups.map((group) => (
+      <div class="catalog-block">
+        <section class="catalog-group" aria-labelledby={`catalog-${group.id}`}>
+          <h2 id={`catalog-${group.id}`}>{group.label}</h2>
+          {products.filter((product) => product.group === group.id).map((product) => (
+            <article class:list={["catalog-row", { independent: product.independent }]} id={product.independent ? undefined : product.id ?? product.name.toLowerCase().replaceAll(" ", "-")}>
+              <div><p class="product-type">{product.type}</p><h3>{product.name}</h3></div>
+              <p class="catalog-summary">{product.summary}</p>
+              <div class="catalog-status"><span>{product.status}</span>{product.href && <a href={product.href}>View product ↗</a>}</div>
+            </article>
+          ))}
+        </section>
+        {group.id === "discourse" && (
+          <section class="recommended-tool" aria-labelledby="gitcms-heading">
+            <p class="eyebrow"><span></span> Tools we use and recommend</p>
+            <h2 id="gitcms-heading">GitCMS</h2>
+            <p class="tool-descriptor">Visual editing for content stored in Git</p>
+            <p class="tool-description">Founded by Waishnav, GitCMS gives teams a visual way to edit and publish content stored in a Git repository. We’ve licensed it for several sites, including <a href="https://onebigbeautifulbill.us/">OneBigBeautifulBill.us</a> and <a href="https://www.repealobbba.org/">RepealOBBBA.org</a>, and value Waishnav’s advice and support.</p>
+            <a class="text-link" href="https://gitcms.dev/">Explore GitCMS →</a>
+          </section>
+        )}
+      </div>
     ))}
-    <article class="catalog-row independent">
-      <span class="catalog-number">{String(products.length + 1).padStart(2, "0")}</span>
-      <div><p class="product-type">Independent product ecosystem</p><h2>DiscussionBridge</h2></div>
-      <p class="catalog-summary">Made by CodeWorksLabs, with its own site, documentation, demos, community, and product identity.</p>
-      <div class="catalog-status"><span>Independent · Alpha</span><a href="/products/discussionbridge/">View product ↗</a></div>
-    </article>
-  </section>
+  </div>
   <section class="section lifecycle" aria-labelledby="lifecycle-heading">
     <div class="lifecycle-intro">
       <div><p class="eyebrow"><span></span> Embryo to hospice</p><h2 id="lifecycle-heading">A whole-product<br /><em>lifecycle.</em></h2></div>
@@ -129,3 +165,22 @@ const lifecycle = [
     <p class="operating-loop"><strong>The operating loop:</strong> publish → sync → diagnose → maintain → recover → document</p>
   </section>
 </Base>
+
+<style>
+  .catalog-block + .catalog-block { margin-top: 4rem; }
+  .catalog-group > h2 { margin: 0 0 1.5rem; font-size: clamp(1.7rem, 3vw, 2.5rem); line-height: 1.15; letter-spacing: -.035em; }
+  .catalog-row { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, .7fr); }
+  .catalog-row h3 { margin: .55rem 0 0; font-size: 2rem; letter-spacing: -.04em; }
+  .catalog-row.independent { margin-top: 0; }
+  .recommended-tool { margin-top: 4rem; padding: 2rem; border: 1px solid var(--line); background: var(--ink-soft); }
+  .recommended-tool h2 { margin: 1rem 0 .75rem; font-size: 2.5rem; line-height: 1.1; letter-spacing: -.035em; }
+  .tool-descriptor { margin-bottom: 1rem; font-size: 1.1rem; font-weight: 650; }
+  .tool-description { max-width: 52rem; color: #b9c5d9; line-height: 1.65; }
+  .tool-description a { color: var(--cyan); text-decoration: underline; text-underline-offset: .2em; }
+  .recommended-tool > .text-link { display: inline-block; margin-top: 1.5rem; }
+  @media (max-width: 980px) {
+    .catalog-row { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
+    .catalog-summary, .catalog-status { grid-column: auto; }
+    .catalog-status { flex-direction: row; align-items: center; flex-wrap: wrap; gap: .7rem 1.25rem; }
+  }
+</style>
