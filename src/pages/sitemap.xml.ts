@@ -14,7 +14,6 @@ const pages = [
   "https://codeworkslabs.dev/security/",
   "https://codeworkslabs.dev/support/",
   "https://codeworkslabs.dev/hosting/",
-  "https://codeworkslabs.dev/hosting/partners/",
 ];
 
 export function GET() {

@@ -1,55 +1,87 @@
 ---
 import Base from "../../layouts/Base.astro";
 
-const hostingAreas = [
-  ["01", "Platform fit", "Choose a delivery model that matches the product: static edge delivery, application hosting, managed platform, or a deliberately mixed architecture."],
-  ["02", "Ownership and access", "Name who owns the account, domain, deployment authority, credentials, billing relationship, and day-to-day decisions before launch."],
-  ["03", "Operations", "Define monitoring, updates, support, incident response, and the evidence needed to call a service healthy."],
-  ["04", "Recovery and portability", "Keep backups, rollback, migration, and exit paths visible so a provider choice never becomes an undocumented trap."],
-];
+const consultationUrl = "mailto:hello@websynergetics.com?subject=Hosting%20consultation";
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "CodeWorksLabs hosting implementation",
-  description: "Hosting planning and implementation for selected CodeWorksLabs product and web-platform engagements.",
-  provider: { "@id": "https://codeworkslabs.dev/#organization" },
-  url: "https://codeworkslabs.dev/hosting/",
-};
+const providers = [
+  {
+    name: "Cloudflare",
+    fit: "Astro, static sites and Workers",
+    description: "A home for Astro and other static sites, with Workers for applications. The CodeWorksLabs website and documentation run on Cloudflare.",
+    href: "https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/",
+    linkLabel: "Explore Astro on Cloudflare",
+  },
+  {
+    name: "Discourse",
+    fit: "Discourse communities",
+    description: "Official managed hosting for Discourse communities, from the team behind Discourse.",
+    href: "https://www.discourse.org/pricing",
+    linkLabel: "Explore Discourse hosting",
+  },
+  {
+    name: "Magic Pages",
+    fit: "Ghost publishing",
+    description: "Fully managed Ghost hosting, including updates, backups and email.",
+    href: "https://www.magicpages.co/",
+    linkLabel: "Explore Magic Pages",
+  },
+  {
+    name: "Arcustech",
+    fit: "Managed and self-managed VPS",
+    description: "Managed VPS hosting for PHP, Craft CMS and Node.js applications, with self-managed VPS options.",
+    href: "https://www.arcustech.com/",
+    linkLabel: "Explore Arcustech",
+  },
+];
 ---
 
-<Base title="Hosting — CodeWorksLabs" description="Hosting planning and implementation with explicit ownership, operational, recovery, and portability boundaries." {structuredData}>
+<Base title="Hosting — CodeWorksLabs" description="Explore hosting options for Astro and static sites, Discourse, Ghost and application hosting.">
   <section class="hosting-hero">
     <div>
       <p class="eyebrow"><span></span> Hosting</p>
-      <h1>A good product needs<br /><em>a responsible home.</em></h1>
-      <p class="lede">Hosting is not an afterthought or a logo selection. We connect product requirements to a clear deployment, ownership, operating, recovery, and migration model.</p>
+      <h1>Find the right home<br /><em>for your platform.</em></h1>
+      <p class="lede">Compare hosting options for your publishing platform or community, from managed services to infrastructure you operate yourself.</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="mailto:hello@codeworkslabs.dev?subject=Hosting%20conversation">Discuss a hosting need <span>↗</span></a>
-        <a class="button button-secondary" href="/hosting/partners/">Hosting platforms &amp; partners</a>
+        <a class="button button-primary" href="#hosting-options">Explore hosting options</a>
+        <a class="button button-secondary" href={consultationUrl}>Discuss your project with WebSynergetics <span>↗</span></a>
       </div>
     </div>
     <aside class="hosting-aside">
-      <strong>Selected engagements</strong>
-      <p>CodeWorksLabs is not a generic commodity host. Hosting work is scoped around a product, site, integration, or platform need where responsibilities can be made explicit.</p>
+      <strong>Start with your platform</strong>
+      <p>Choose the platform first, then compare how much you want the provider to manage and how much control you need.</p>
     </aside>
   </section>
 
-  <section class="section">
+  <section class="section hosting-options" id="hosting-options" aria-labelledby="hosting-options-heading">
+    <div class="section-heading"><p class="eyebrow"><span></span> Provider options</p><h2 id="hosting-options-heading">Hosting that fits<br /><em>what you’re building.</em></h2></div>
     <div class="hosting-grid">
-      {hostingAreas.map(([number, title, description]) => <article><span>{number}</span><h2>{title}</h2><p>{description}</p></article>)}
+      {providers.map((provider) => (
+        <article class="provider-card">
+          <span>{provider.fit}</span>
+          <h3>{provider.name}</h3>
+          <p>{provider.description}</p>
+          <a class="text-link" href={provider.href}>{provider.linkLabel} →</a>
+        </article>
+      ))}
     </div>
   </section>
 
-  <section class="section operating-model">
-    <div><p class="eyebrow"><span></span> Responsibility model</p><h2>Useful boundaries,<br />before deployment.</h2></div>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Before you choose</p><h2>Make it a good fit.<br /><em>Keep a way forward.</em></h2></div>
     <div>
-      <p class="large-copy">The implementation should say who builds the product, who operates the environment, and who owns the provider relationship.</p>
-      <div class="responsibility-map">
-        <article><h3>CodeWorksLabs</h3><p>Product architecture, integration behavior, build requirements, and deployable software.</p></article>
-        <article><h3>WebSynergetics</h3><p>Selected implementation, coordination, and operational work where that role is part of the engagement.</p></article>
-        <article><h3>Client or provider</h3><p>Account ownership, platform services, commercial terms, and any responsibilities assigned in the exact arrangement.</p></article>
-      </div>
+      <p><strong>Match the platform.</strong> Check what your site or community needs, including applications, storage and expected traffic.</p>
+      <p><strong>Know who handles what.</strong> Confirm account and domain ownership, billing, updates, backups and the route for support.</p>
+      <p><strong>Keep your options open.</strong> Understand how to restore your site, export its content and move providers if your needs change.</p>
     </div>
   </section>
 </Base>
+
+<style>
+  .hosting-options { padding-top: 2rem; }
+  .hosting-grid { margin-top: 3rem; }
+  .provider-card { display: flex; flex-direction: column; align-items: flex-start; }
+  .provider-card > span { text-transform: uppercase; letter-spacing: .1em; }
+  .provider-card h3 { margin-top: 2rem; font-size: 1.65rem; letter-spacing: -.035em; }
+  .provider-card p { margin-bottom: 1.4rem; }
+  .provider-card .text-link { margin-top: auto; }
+</style>
