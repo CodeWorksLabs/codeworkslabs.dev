@@ -27,7 +27,7 @@ Treat the checked-out \`main\` commit as the exact source identity. Verify it wi
 ## 2026-10-25 tune-up candidate
 
 Phil authorized the joint Astro/Cloudflare audit corrections. The current
-uncommitted candidate adds page-owned Open Graph and Twitter image metadata to
+site-delivery candidate adds page-owned Open Graph and Twitter image metadata to
 the homepage, using the already governed CodeWorksLabs systems artwork, plus a
 Cloudflare static-assets `_headers` policy for `nosniff`, a bounded referrer
 policy, disabled camera/geolocation/microphone permissions, and immutable
@@ -38,6 +38,8 @@ Fresh local verification against the candidate completed successfully:
 image-rights verification for both authoritative files and all 15 generated
 derivatives; and Wrangler 4.123.0 dry run reading 55 files. No source commit,
 push, deployment, provider mutation, DNS change, or public-site change has yet
-occurred for this candidate. Cloudflare Boss is waiting for an exact reviewed
+occurred for this candidate. The local candidate is committed above
+`origin/main`; its final identity must be recorded after review closure.
+Cloudflare Boss is waiting for an exact reviewed
 commit and will then align the existing native build trigger from
 `npx wrangler deploy` to the checked-in guarded `npm run deploy` command.
