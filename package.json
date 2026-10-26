@@ -12,10 +12,15 @@
     "deploy": "wrangler deploy --config wrangler.jsonc --strict"
   },
   "dependencies": {
-    "astro": "^7.1.1",
+    "astro": "^7.4.2",
     "sharp": "0.35.5"
   },
   "devDependencies": {
-    "wrangler": "4.123.0"
+    "wrangler": "4.152.0"
+  },
+  "overrides": {
+    "miniflare": {
+      "undici": "7.30.1"
+    }
   }
 }
