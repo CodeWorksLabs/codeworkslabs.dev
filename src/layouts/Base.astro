@@ -77,13 +77,6 @@ const organization = {
     <meta name="twitter:description" content={description} />
     {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
     {socialImageUrl && socialImageAlt && <meta name="twitter:image:alt" content={socialImageAlt} />}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVB6HKL9PR"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-GVB6HKL9PR');
-    </script>
     <link rel="icon" href="/favicon.png" type="image/png" />
     <script type="application/ld+json" set:html={JSON.stringify(organization)} />
     {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}

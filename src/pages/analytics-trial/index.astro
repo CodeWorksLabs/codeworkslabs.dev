@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import AnalyticsTrial from '../../components/AnalyticsTrial.astro';
+---
+<Base title="Analytics trial — CodeWorksLabs" description="Try Analytics for Astro on a live CodeWorksLabs site.">
+  <div class="trial-intro">
+    <h1>Analytics for Astro: live trial</h1>
+    <p>Follow a pageview, an explicit event and a second pageview through Fathom, Plausible, Google Analytics 4, Matomo and Umami.</p>
+  </div>
+  <AnalyticsTrial eventName="cwl_live_apex_trial" />
+</Base>
+<style>.trial-intro { max-width: 48rem; margin: 3rem auto; padding: 0 1.5rem; }</style>
