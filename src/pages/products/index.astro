@@ -7,8 +7,13 @@ const products = [
     id: "astro-analytics",
     group: "astro",
     type: "Astro integration",
-    status: "Experimental private development",
-    summary: "Provider-flexible analytics with explicit enablement, bounded event queueing, and a Starlight wrapper.",
+    status: "Stable · 0.1.0",
+    summary: "Analytics for Astro connects Astro and Starlight sites to Fathom, Plausible, Google Analytics 4, Matomo, and Umami. Use one provider or several, track pageviews and custom events, and connect tracking to your site’s consent choices.",
+    links: [
+      { label: "Documentation", href: "https://docs.codeworkslabs.dev/analytics-for-astro/" },
+      { label: "npm", href: "https://www.npmjs.com/package/@codeworkslabs/astro-analytics" },
+      { label: "Source", href: "https://github.com/CodeWorksLabs/astro-analytics" },
+    ],
   },
   {
     name: "Bluesky Comments for Astro",
@@ -142,7 +147,11 @@ const lifecycle = [
             <article class:list={["catalog-row", { independent: product.independent }]} id={product.independent ? undefined : product.id ?? product.name.toLowerCase().replaceAll(" ", "-")}>
               <div><p class="product-type">{product.type}</p><h3>{product.name}</h3></div>
               <p class="catalog-summary">{product.summary}</p>
-              <div class="catalog-status"><span>{product.status}</span>{product.href && <a href={product.href}>View product ↗</a>}</div>
+              <div class="catalog-status">
+                <span>{product.status}</span>
+                {product.links?.map((link) => <a href={link.href}>{link.label} ↗</a>)}
+                {!product.links && product.href && <a href={product.href}>View product ↗</a>}
+              </div>
             </article>
           ))}
         </section>
