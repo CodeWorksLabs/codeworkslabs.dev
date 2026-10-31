@@ -1,6 +1,7 @@
 const pages = [
   "https://codeworkslabs.dev/",
   "https://codeworkslabs.dev/products/",
+  "https://codeworkslabs.dev/products/analytics-for-astro/",
   "https://codeworkslabs.dev/products/brand-navigation/",
   "https://codeworkslabs.dev/products/discourse-network/",
   "https://codeworkslabs.dev/products/discourse-federation/",

@@ -9,11 +9,7 @@ const products = [
     type: "Astro integration",
     status: "Stable · 0.1.0",
     summary: "Analytics for Astro connects Astro and Starlight sites to Fathom, Plausible, Google Analytics 4, Matomo, and Umami. Use one provider or several, track pageviews and custom events, and connect tracking to your site’s consent choices.",
-    links: [
-      { label: "Documentation", href: "https://docs.codeworkslabs.dev/analytics-for-astro/" },
-      { label: "npm", href: "https://www.npmjs.com/package/@codeworkslabs/astro-analytics" },
-      { label: "Source", href: "https://github.com/CodeWorksLabs/astro-analytics" },
-    ],
+    href: "/products/analytics-for-astro/",
   },
   {
     name: "Bluesky Comments for Astro",
@@ -27,7 +23,7 @@ const products = [
     name: "Brand Navigation",
     group: "discourse",
     type: "Discourse theme component",
-    status: "Release candidate",
+    status: "Release candidate · RC5",
     summary: "A coherent brand header, one-level navigation model, and structured administration surface for Discourse.",
     href: "/products/brand-navigation/",
     public: true,
@@ -149,8 +145,7 @@ const lifecycle = [
               <p class="catalog-summary">{product.summary}</p>
               <div class="catalog-status">
                 <span>{product.status}</span>
-                {product.links?.map((link) => <a href={link.href}>{link.label} ↗</a>)}
-                {!product.links && product.href && <a href={product.href}>View product ↗</a>}
+                {product.href && <a href={product.href}>View product ↗</a>}
               </div>
             </article>
           ))}

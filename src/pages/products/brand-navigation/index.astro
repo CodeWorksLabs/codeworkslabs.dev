@@ -1,9 +1,9 @@
 ---
 import Base from "../../../layouts/Base.astro";
 
-const releaseVersion = "v1.0.0-rc.4";
+const releaseVersion = "v1.0.0-rc.5";
 const releaseUrl = `https://github.com/CodeWorksLabs/brand-navigation/releases/tag/${releaseVersion}`;
-const previewRoot = `https://raw.githubusercontent.com/CodeWorksLabs/brand-navigation/${releaseVersion}/docs/images/previews`;
+const previewRoot = "https://raw.githubusercontent.com/CodeWorksLabs/brand-navigation/v1.0.0-rc.4/docs/images/previews";
 const description = "Add your brand, links and dropdown menus to Discourse, with optional links and icons in the forum header.";
 
 const features = [
@@ -34,7 +34,7 @@ const structuredData = {
   description,
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Discourse",
-  softwareVersion: "1.0.0-rc.4",
+  softwareVersion: "1.0.0-rc.5",
   url: "https://codeworkslabs.dev/products/brand-navigation/",
   downloadUrl: releaseUrl,
   license: "https://github.com/CodeWorksLabs/brand-navigation/blob/main/LICENSE",
@@ -55,7 +55,7 @@ const structuredData = {
           <a class="button button-secondary" href="#previews">See previews</a>
         </div>
         <nav class="product-utility-actions" aria-label="Brand Navigation resources">
-          <a href={releaseUrl}>RC4 release</a>
+          <a href={releaseUrl}>RC5 release</a>
           <a href="https://github.com/CodeWorksLabs/brand-navigation">Source</a>
           <a href="https://github.com/CodeWorksLabs/brand-navigation/issues">Report an issue</a>
         </nav>
@@ -64,7 +64,7 @@ const structuredData = {
     <aside class="release-panel">
       <p>Current release</p><strong>{releaseVersion}</strong><span>Release candidate · prerelease</span>
       <dl><div><dt>Maintainer</dt><dd>CodeWorksLabs</dd></div><div><dt>License</dt><dd>GPL-2.0-or-later</dd></div><div><dt>Platform</dt><dd>Discourse</dd></div></dl>
-      <a class="text-link release-link" href={releaseUrl}>Download RC4 and read the release notes →</a>
+      <a class="text-link release-link" href={releaseUrl}>Download RC5 and read the release notes →</a>
     </aside>
   </section>
   <div class="independence-note">Independently maintained by CodeWorksLabs. Not an official Discourse product.</div>
@@ -76,7 +76,7 @@ const structuredData = {
   </section>
   <section class="section preview-section" id="previews" aria-labelledby="previews-heading">
     <div class="section-heading"><p class="eyebrow"><span></span> Preview</p><h2 id="previews-heading">See it on<br />real communities.</h2></div>
-    <p class="section-intro">These desktop screenshots show Brand Navigation in use while signed in. Open a screenshot for a closer look, or visit the community. Live navigation may change.</p>
+    <p class="section-intro">These RC4 desktop screenshots show Brand Navigation in use while signed in. Open a screenshot for a closer look, or visit the community. Live navigation may change.</p>
     <div class="header-previews">
       {headerPreviews.map((preview) => (
         <figure>
@@ -109,12 +109,12 @@ const structuredData = {
     <div class="community-links">
       <article><h3>Get help</h3><p>Ask setup questions, troubleshoot a problem or share your configuration in Brand Navigation’s dedicated Support area.</p><a class="text-link" href="https://forum.codeworkslabs.dev/c/brand-navigation/support/7">Brand Navigation Support →</a></article>
       <article><h3>Suggest an improvement</h3><p>Share what your community needs and discuss existing requests. Each idea has its own topic.</p><a class="text-link" href="https://forum.codeworkslabs.dev/c/brand-navigation/feature-requests/8">Feature Requests →</a></article>
-      <article><h3>Follow the roadmap</h3><p>See what is proposed, planned, in progress and released. Proposals, including individual social icon colors, are not features already included in RC4.</p><a class="text-link" href="https://forum.codeworkslabs.dev/t/brand-navigation-roadmap/14">Brand Navigation roadmap →</a></article>
+      <article><h3>Follow the roadmap</h3><p>See what is proposed, planned, in progress and released. Check the release notes to see which features are available in the current candidate.</p><a class="text-link" href="https://forum.codeworkslabs.dev/t/brand-navigation-roadmap/14">Brand Navigation roadmap →</a></article>
     </div>
   </section>
   <section class="limitations">
     <strong>Try it with your theme first.</strong>
-    <p>RC4 is a release candidate. Preview your navigation on desktop and mobile, keep labels short, and back up your settings before updating. See <a href="https://docs.codeworkslabs.dev/brand-navigation/updates-and-compatibility/">tested Discourse versions and compatibility guidance</a> for the current checks and limits.</p>
+    <p>RC5 is a release candidate with known issues, including stale color-setting displays and unresolved frontend test failures. Read the <a href={releaseUrl}>RC5 release notes</a> before updating. Try it on a staging site or separate component copy first: themes sharing one component also share its code and settings. See <a href="https://docs.codeworkslabs.dev/brand-navigation/updates-and-compatibility/">compatibility guidance</a> for further checks and limits.</p>
   </section>
 </Base>
 

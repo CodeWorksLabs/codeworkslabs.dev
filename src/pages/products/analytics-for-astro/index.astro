@@ -1,0 +1,72 @@
+---
+import Base from "../../../layouts/Base.astro";
+
+const description = "Analytics for Astro connects Astro and Starlight sites to five analytics providers, with pageviews, custom events, and runtime consent controls.";
+const packageUrl = "https://www.npmjs.com/package/@codeworkslabs/astro-analytics";
+const docsUrl = "https://docs.codeworkslabs.dev/analytics-for-astro/";
+const sourceUrl = "https://github.com/CodeWorksLabs/astro-analytics";
+const features = [
+  ["Choose your providers", "Connect Fathom, Plausible, Google Analytics 4, Matomo, or Umami. Use one provider or several together."],
+  ["Follow page visits", "Track pageviews on normal page loads and as visitors navigate with Astro’s ClientRouter."],
+  ["Record custom events", "Use a shared event API across providers, with a result for each provider."],
+  ["Connect consent choices", "Use runtime consent controls to connect tracking to the choices made through your site’s consent interface."],
+];
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Analytics for Astro",
+  description,
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Astro and Starlight",
+  softwareVersion: "0.1.0",
+  url: "https://codeworkslabs.dev/products/analytics-for-astro/",
+  downloadUrl: packageUrl,
+  author: { "@id": "https://codeworkslabs.dev/#organization" },
+};
+---
+
+<Base title="Analytics for Astro — CodeWorksLabs" {description} {structuredData}>
+  <section class="product-hero">
+    <div>
+      <p class="eyebrow"><span></span> Analytics for Astro · Astro integration</p>
+      <h1>Your site.<br /><em>Your analytics choices.</em></h1>
+      <p class="lede">Connect your Astro or Starlight site to the analytics providers you choose. Track pageviews and custom events, and connect tracking to your site’s consent choices.</p>
+      <div class="product-actions">
+        <div class="hero-actions">
+          <a class="button button-primary" href={docsUrl}>Get started <span>↗</span></a>
+          <a class="button button-secondary" href={packageUrl}>View npm package</a>
+        </div>
+        <nav class="product-utility-actions" aria-label="Analytics for Astro resources">
+          <a href={docsUrl}>Documentation</a>
+          <a href={sourceUrl}>Source</a>
+          <a href={`${sourceUrl}/issues`}>Report an issue</a>
+        </nav>
+      </div>
+    </div>
+    <aside class="release-panel">
+      <p>Current release</p><strong>0.1.0</strong><span>Stable</span>
+      <dl><div><dt>Maintainer</dt><dd>CodeWorksLabs</dd></div><div><dt>Platforms</dt><dd>Astro and Starlight</dd></div><div><dt>Package</dt><dd>@codeworkslabs/astro-analytics</dd></div></dl>
+    </aside>
+  </section>
+  <section class="section feature-section">
+    <div class="section-heading"><p class="eyebrow"><span></span> What you can do</p><h2>One integration.<br />Room to choose.</h2></div>
+    <div class="feature-grid">{features.map(([title, copy], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+  </section>
+  <section class="section install-band">
+    <div><p class="eyebrow"><span></span> Get started</p><h2>Add analytics.<br />Keep control.</h2></div>
+    <div><code>npm install @codeworkslabs/astro-analytics</code><p>Follow the documentation to configure your providers, choose how pageviews are tracked, and connect your consent controls.</p><a class="text-link" href={docsUrl}>Read the setup guide →</a></div>
+  </section>
+  <section class="limitations">
+    <strong>Consent and delivery</strong>
+    <p>Your site supplies the consent banner and stores visitors’ choices. The integration provides runtime controls; it does not include an event queue or retry failed events. A provider accepting an event in the browser does not confirm delivery to its server.</p>
+  </section>
+</Base>
+
+<style>
+  .product-hero > div, .release-panel { min-width: 0; }
+  .release-panel dd { overflow-wrap: anywhere; }
+  @media (max-width: 480px) {
+    .product-hero h1 { font-size: clamp(2.7rem, 12vw, 4rem); }
+    .release-panel { padding: 1.5rem; }
+  }
+</style>
