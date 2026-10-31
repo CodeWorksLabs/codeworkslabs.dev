@@ -54,11 +54,11 @@ const structuredData = {
   </section>
   <section class="section install-band">
     <div><p class="eyebrow"><span></span> Get started</p><h2>Add analytics.<br />Keep control.</h2></div>
-    <div><code>npm install @codeworkslabs/astro-analytics</code><p>Follow the documentation to configure your providers, choose how pageviews are tracked, and connect your consent controls.</p><a class="text-link" href={docsUrl}>Read the setup guide →</a></div>
+    <div><code>npm install --save-exact @codeworkslabs/astro-analytics@0.1.0</code><p>Follow the documentation to configure your providers, choose how pageviews are tracked, and connect your consent controls.</p><a class="text-link" href={docsUrl}>Read the setup guide →</a></div>
   </section>
   <section class="limitations">
     <strong>Consent and delivery</strong>
-    <p>Your site supplies the consent banner and stores visitors’ choices. The integration provides runtime controls; it does not include an event queue or retry failed events. A provider accepting an event in the browser does not confirm delivery to its server.</p>
+    <p>If you use consent gating, your site supplies the consent banner and remembers visitors’ choices. The integration provides runtime controls; it does not include an event queue or retry failed events. A provider accepting an event in the browser does not confirm delivery to its server.</p>
   </section>
 </Base>
 
